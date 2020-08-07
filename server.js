@@ -29,7 +29,7 @@ mongoose
             useUnifiedTopology: true
         })
     .then(() => {
-        console.log("connected to the database")
+        console.log("connected to the database TESTING ")
     })
     .catch((err) => {
         console.log("unable to connect to the database")
