@@ -18,9 +18,9 @@ app.get("/api/config", (req, res) => {
     });
 })
 
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// })
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+})
 
 mongoose
     .connect(process.env.MONGOD_URI || "mongodb://localhost/gt-project3",
