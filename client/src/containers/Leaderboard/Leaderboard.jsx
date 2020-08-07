@@ -1,11 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const Leaderboard = () => {
-    return (
-        <div>
-            <h1>This is the Leaderboard page</h1>
-        </div>
-    );
+  return (
+    <container>
+      <h1>World Rankings</h1>
+      <h3>Username QuizName Score</h3>
+      <ol>
+        <li>Username QuizName Score</li>
+        <li>Username QuizName Score</li>
+        <li>Username QuizName Score</li>
+        <li>Username QuizName Score</li>
+        <li>Username QuizName Score</li>
+        <li>Username QuizName Score</li>
+      </ol>
+    </container>
+  );
 };
 
 export default Leaderboard;

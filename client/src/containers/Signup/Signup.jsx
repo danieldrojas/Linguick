@@ -1,11 +1,29 @@
-import React from 'react';
+import React from "react";
 
 const Signup = () => {
-    return (
-        <div>
-            <h1>This is the signup page</h1>
-        </div>
-    );
+  return (
+    <container>
+      <h1>Sign Up</h1>
+      <form>
+        <ul>
+          <li>
+            Username: <input type="text" />
+          </li>
+          <li>
+            Email: <input type="text" />
+          </li>
+          <li>
+            Password: <input type="password" />
+          </li>
+          <li>
+            Confirm Password: <input type="password" />
+          </li>
+        </ul>
+        <button>Create Account</button>
+      </form>
+      <p>Already have an account? Log in.</p>
+    </container>
+  );
 };
 
 export default Signup;
