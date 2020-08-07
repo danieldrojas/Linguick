@@ -1,8 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose")
-const path = require("path")
+const mongoose = require("mongoose");
+const path = require("path");
 
 var app = express();
+
+const db = require("./models");
 
 const PORT = process.env.PORT || 3001;
 
@@ -13,29 +15,35 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 app.get("/api/config", (req, res) => {
-    res.json({
-        success: true
-    });
-})
+  res.json({
+    success: true,
+  });
+});
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
+
+db.Quiz.create({ name: "Campus Library" }).then((dbQuestions) => {
+  console.log(dbQuestions);
+}).catch((err)=>{
+    console.log(err)
 })
 
 mongoose
-    .connect(process.env.MONGOD_URI || "mongodb://localhost/gt-project3",
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-    .then(() => {
-        console.log("connected to the database TESTING ")
-    })
-    .catch((err) => {
-        console.log("unable to connect to the database")
-        console.log(err)
-    })
+  .connect(process.env.MONGOD_URI || "mongodb://localhost/gt-project3", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("connected to the database TESTING ");
+  })
+  .catch((err) => {
+    console.log("unable to connect to the database");
+    console.log(err);
+  });
 
 app.listen(PORT, () => {
-    console.log(`Express server running on http://localhost:${PORT}`)
-})
+  console.log(`Express server running on http://localhost:${PORT}`);
+});
