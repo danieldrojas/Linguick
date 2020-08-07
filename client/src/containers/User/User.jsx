@@ -3,7 +3,15 @@ import React from 'react';
 const User = () => {
     return (
         <div>
-            <h1>This is the user dashboard page</h1>
+            <h1>Welcome to your dashboard, username</h1>
+            <p>See world rankings</p>
+            <h2>Quizzes Taken:</h2>
+            <ul>
+                <li>Quiz name: score</li>
+                <li>Quiz name: score</li>
+                <li>Quiz name: score</li>
+                <li>Quiz name: score</li>
+            </ul>
         </div>
     );
 };
