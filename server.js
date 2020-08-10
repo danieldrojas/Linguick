@@ -1,6 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const path = require("path")
+const routes = require("./routes");
+const router = require("./routes");
+
+// const gameController = require("./controllers/game")
+
+
 
 var app = express();
 
@@ -12,15 +18,14 @@ app.use(express.json());
 
 app.use(express.static("client/build"));
 
+app.use(routes)
+
 app.get("/api/config", (req, res) => {
     res.json({
         success: true
     });
 })
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-})
 
 mongoose
     .connect(process.env.MONGOD_URI || "mongodb://localhost/gt-project3",
