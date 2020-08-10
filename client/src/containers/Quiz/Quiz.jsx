@@ -5,8 +5,8 @@ import Timer from '../../components/Timer/Timer'
 const Quiz = () => {
 
   useEffect(() => {
-    API.getQuestions().then((questions) => {
-      console.log(questions)
+    API.getQuestions().then(({data}) => {
+      console.log("this is my questions from database: ", data)
     }).catch((err) => {
       console.log(err)
     })

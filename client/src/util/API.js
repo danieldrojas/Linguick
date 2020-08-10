@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     // Gets all posts
     getQuestions: function () {
-        return axios.get("/api/questions");
+        return axios.get("/api/question");
     },
     // // Gets the post with the given id
     // getPost: function (id) {
