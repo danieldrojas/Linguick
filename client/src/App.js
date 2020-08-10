@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import Home from './components/Home/Home';
+import GameTest from "./gameTest"
+import { Router } from 'react-router-dom';
 
 
 
@@ -22,7 +24,10 @@ function App() {
 
   return (
     <div>
-      <Home />
+
+      <GameTest/>
+
+      
     </div>
   );
 }
