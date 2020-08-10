@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const questionController = require("../../controllers/questionController");
 
-// Matches with "/api/questions"
+// Matches with "/api/question"
 router
     .route("/")
     .get(questionController.findAll)
