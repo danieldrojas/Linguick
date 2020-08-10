@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <container>
+    <div className="container">
       <h1>Log in</h1>
       <form>
           <ul>
@@ -12,7 +12,7 @@ const Login = () => {
         <button>Log In</button>
       </form>
       <p>Don't have an account? Sign up.</p>
-    </container>
+    </div>
   );
 };
 

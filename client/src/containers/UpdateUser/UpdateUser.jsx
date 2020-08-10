@@ -2,7 +2,7 @@ import React from "react";
 
 const UpdateUser = () => {
   return (
-    <container>
+    <div className="container">
       <h1>Hello, username</h1>
       <form>
         <ul>
@@ -19,7 +19,7 @@ const UpdateUser = () => {
       </form>
       <button>Edit</button>
       <button>Update</button>
-    </container>
+    </div>
   );
 };
 
