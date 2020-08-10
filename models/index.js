@@ -1,5 +1,3 @@
 module.exports = {
-    Quiz: require("./Quiz"),
-    Question: require("./Question"),
-    Language:require("./Language")
-  };
+  Question: require("./Question"),
+};

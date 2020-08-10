@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const languageRoutes = require("./language");
+const questionRoutes = require("./question");
+// const quizRoutes = require("./quiz");
 
 // Post routes
-router.use("/language", languageRoutes);
+router.use("/question", questionRoutes);
+// router.use("/quiz", quizRoutes);
 
 module.exports = router;

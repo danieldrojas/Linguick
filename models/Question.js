@@ -4,10 +4,20 @@ const Schema = mongoose.Schema;
 
 const QuestionSchema = new Schema({
   question: [
+    {
+      type: String,
+    },
   ],
   choices: [
+    {
+      type: String,
+    },
   ],
   answers: [
+    {
+      type: String,
+      required: true,
+    },
   ],
 });
 

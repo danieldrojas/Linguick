@@ -20,11 +20,11 @@ app.use(express.static("client/build"));
 
 app.use(routes)
 
-app.get("/api/config", (req, res) => {
-    res.json({
-        success: true
-    });
-})
+// app.get("/api/config", (req, res) => {
+//     res.json({
+//         success: true
+//     });
+// })
 
 
 mongoose
