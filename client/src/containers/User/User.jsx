@@ -7,6 +7,7 @@ const User = () => {
             <p>See world rankings</p>
             <h2>Quizzes Taken:</h2>
             <ul>
+                {/* Create component for each quiz score */}
                 <li>Quiz name: score</li>
                 <li>Quiz name: score</li>
                 <li>Quiz name: score</li>
