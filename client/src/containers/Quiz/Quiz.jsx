@@ -3,7 +3,7 @@ import Timer from '../../components/Timer/Timer'
 
 const Quiz = () => {
   return (
-    <container>
+    <div className="container">
       <h1>Question</h1>
       {/* Create component for timer */}
       <Timer time='60' />
@@ -13,7 +13,7 @@ const Quiz = () => {
       <button>Choice 2</button>
       <button>Choice 3</button>
       <button>Choice 4</button>
-    </container>
+    </div>
   );
 };
 

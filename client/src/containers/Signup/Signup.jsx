@@ -2,7 +2,7 @@ import React from "react";
 
 const Signup = () => {
   return (
-    <container>
+    <div className="container">
       <h1>Sign Up</h1>
       <form>
         <ul>
@@ -22,7 +22,7 @@ const Signup = () => {
         <button>Create Account</button>
       </form>
       <p>Already have an account? Log in.</p>
-    </container>
+    </div>
   );
 };
 
