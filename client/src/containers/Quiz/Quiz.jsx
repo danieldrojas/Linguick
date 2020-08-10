@@ -2,6 +2,7 @@ import React, {Component} from "react";
 //import Timer from '../../components/Timer/Timer'
 import question from "./testQuestions.json"
 import Timer from "../../components/Timer/Timer"
+import API from "../../util/API"
 
 class Quiz extends Component{
   state = {
@@ -14,6 +15,12 @@ class Quiz extends Component{
 //Start timer and get 1st question from database
   componentDidMount(){
     this.setState(question[0]) 
+      API.getQuestions().then(({ data }) => {
+        console.log("this is my questions from database: ", data)
+      }).catch((err) => {
+        console.log(err)
+      })
+  
   }
 
   handleButtonPress = (event) => {
