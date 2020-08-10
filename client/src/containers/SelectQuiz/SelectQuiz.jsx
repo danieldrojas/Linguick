@@ -2,10 +2,10 @@ import React from 'react';
 
 const SelectQuiz = () => {
     return (
-        <container>
+        <div className="container">
             <h1>Select quiz to take:</h1>
             <button>Korean</button>
-        </container>
+        </div>
     );
 };
 

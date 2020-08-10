@@ -41,14 +41,14 @@ class Quiz extends Component{
 
   render(){
     return (
-      <container>
+      <div className = "container">
         <Timer wrong = {this.setState.isWrong}/>
         <h1>Question: {this.state.question}</h1>
         <button onClick = {this.handleButtonPress} id = {this.state.choices[0]}>{this.state.choices[0]}</button>
         <button onClick = {this.handleButtonPress} id = {this.state.choices[1]}>{this.state.choices[1]}</button>
         <button onClick = {this.handleButtonPress} id = {this.state.choices[2]}>{this.state.choices[2]}</button>
         <button onClick = {this.handleButtonPress} id = {this.state.choices[3]}> {this.state.choices[3]}</button>
-      </container>
+      </div>
     );
   }
 };
