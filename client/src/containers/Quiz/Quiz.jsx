@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
+import API from '../../util/API'
 import Timer from '../../components/Timer/Timer'
 
 const Quiz = () => {
+
+  useEffect(() => {
+    API.getQuestions().then((questions) => {
+      console.log(questions)
+    }).catch((err) => {
+      console.log(err)
+    })
+  })
+
   return (
     <container>
       <h1>Question</h1>
