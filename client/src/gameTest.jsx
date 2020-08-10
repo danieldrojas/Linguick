@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import question from "./testQuestions.json";
 //import Game from "./utils/game"
 
+//THIS FILE IS A PLACE HOLDER FOR THE GAME LOGIC FOR TESTING
+
 let timer; 
 class GameTest extends Component {
   state = {
@@ -9,7 +11,7 @@ class GameTest extends Component {
     choices: [],
     answer:"",
     index:0,
-    time:100,
+    time:5000,
   };
 
   //on mount set up the next questions
@@ -17,7 +19,11 @@ class GameTest extends Component {
     this.setState(question[0]) 
     timer = setInterval( () => {
       this.setState({time:this.state.time-1})
-    },1000)
+      if(this.state.time <= 0){
+        clearInterval(timer)
+        window.location.href = "/home"
+      }
+    },10)
   }
   
   //handler for handling a guess
@@ -41,6 +47,7 @@ class GameTest extends Component {
     //if guess incorrectly
     else{
       console.log("You Guessed Incorrectly")
+      this.setState({time:this.state.time - 300})
     }
   };
 
