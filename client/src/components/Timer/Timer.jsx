@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 
 const Timer = (props) => {
-  const [timer, setTimer] = useState([]);
-  const [timerActive, setTimerActive] = useState([]);
+   const [timer, setTimer] = useState(100);
 
   useEffect(() => {
-    setTimerActive(true);
-    let timerCount = props.time;
+    let timerCount = timer
     const interval = setInterval(() => {
+      timerCount--
       setTimer(timerCount);
-      timerCount = timerCount - 1;
-      if (timerCount < 0) {
-        setTimerActive(false);
+      if (timerCount <= 0) {
         clearInterval(interval);
-        // return <Redirect push to="./user" />;
+        window.location.href = "/leaderboard"
       }
     }, 1000);
-  }, []);
-  //   const timerStop = () => {}
+  }, [timer]);
+
   return (
     <div>
       <h3>{timer}</h3>
-      {timerActive === false && (
-        <Link to="/user">
-          <button>See results</button>
-        </Link>
-      )}
     </div>
   );
 };
