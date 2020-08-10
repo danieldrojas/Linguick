@@ -1,11 +1,12 @@
 import React from "react";
+import Timer from '../../components/Timer/Timer'
 
 const Quiz = () => {
   return (
     <container>
       <h1>Question</h1>
       {/* Create component for timer */}
-      <h3>Timer: 60</h3>
+      <Timer time='60' />
       <p>Character goes here</p>
       {/* Create component for question choice */}
       <button>Choice 1</button>
