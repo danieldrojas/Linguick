@@ -18,8 +18,10 @@ class GameTest extends Component {
     console.log(event.target.id)
     if(event.target.id === this.state.answer){
       console.log("You Guessed Correctly")
+
       if(question.length === this.state.index+1){
         console.log("You completed the game")
+        window.location.href = "/home"
         
       }
       this.setState({index:this.state.index +1} , ()=>{
