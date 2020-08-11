@@ -17,7 +17,6 @@ class Quiz extends Component{
       API.getQuestions().then(({ data }) => {
         console.log("this is my questions from database: ", data[0])
         this.setState(data[0]) 
-        console.log(this.answer)
 
       }).catch((err) => {
         console.log(err)
@@ -30,8 +29,6 @@ class Quiz extends Component{
     //check if the guess is correct
     if(event.target.id === this.state.answer){
       console.log("You Guessed Correctly")
-      console.log("event target id", event.target.id)
-      console.log("answer :", this.state.answer)
 
       //handling for when the game is completed
       if(question.length === this.state.index+1){
