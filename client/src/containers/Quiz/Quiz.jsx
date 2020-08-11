@@ -17,6 +17,7 @@ class Quiz extends Component {
   //Start timer and get 1st question from database
   componentDidMount() {
     API.getQuestions().then((res) => {
+      
       this.setState({
         quiz: res.data,
         question: res.data[0].question,
@@ -45,6 +46,7 @@ class Quiz extends Component {
           this.setState(this.state.quiz[this.state.index]);
       });
     }
+
     //if guess incorrectly
     else {
       console.log("You Guessed Incorrectly");
