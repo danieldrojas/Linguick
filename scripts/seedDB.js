@@ -9,49 +9,49 @@ const characterseed = [
     // quiz_name:"Korean Alphabet",
     question: "ㅏ",
     choices: ["uu", "ya", "eu", "ah"],
-    answers: "ah",
+    answer: "ah",
   },
   {
     question: "ㅑ",
     choices: ["o", "ah", "yeo", "ya"],
-    answers: "ya",
+    answer: "ya",
   },
   {
     question: "ㅓ",
     choices: ["o", "eo", "uu", "ah"],
-    answers: "eo",
+    answer: "eo",
   },
   {
     question: "ㅕ",
     choices: ["yeo", "yu", "eo", "o"],
-    answers: "yeo",
+    answer: "yeo",
   }, 
   {
     question: "ㅗ ",
     choices: ["ya", "uu", "oo", "o"],
-    answers: "o",
+    answer: "o",
   },
   {
     question: "ㅛ",
     choices: ["yeo", "oh", "yo", "ee"],
-    answers: "yo",
+    answer: "yo",
   },
   {
     question: "ㅜ ",
     choices: ["uu", "ee", "ah", "oo"],
-    answers: "uu",
+    answer: "uu",
   }, {
     question: "ㅠ",
     choices: ["yeo", "yu", "o", "a"],
-    answers: "yu",
+    answer: "yu",
   }, {
     question: "ㅡ",
     choices: ["yo", "eu", "oo", "a"],
-    answers: "eu",
+    answer: "eu",
   }, {
     question: "ㅣ",
-    choices: ["ah", "ei", "eu", "li"],
-    answers: "e",
+    choices: ["ah", "e", "eu", "li"],
+    answer: "e",
   },
 ];
 db.Question.remove({})

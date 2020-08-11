@@ -7,7 +7,7 @@ class Quiz extends Component{
   state = {
     question:"",
     choices: [],
-    answers:"",
+    answer:"",
     index:0,
     quizLength:0
   };
@@ -26,7 +26,7 @@ class Quiz extends Component{
     event.preventDefault();
     //check if the guess is correct
     console.log(event.target.value)
-    if(event.target.value === this.state.answers){
+    if(event.target.value === this.state.answer){
       console.log("You Guessed Correctly")
 
       //handling for when the game is completed
