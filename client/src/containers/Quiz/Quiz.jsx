@@ -14,15 +14,25 @@ class Quiz extends Component {
     isDone: false,
   };
 
+  randomizeArray(oldArray) {
+    var newArray = [];
+    for (var i = oldArray.length; i > 0; i--) {
+      var randIndex = Math.floor(Math.random() * oldArray.length);
+      newArray.push(oldArray[randIndex]);
+      oldArray.splice(randIndex, 1);
+    }
+    return newArray;
+  }
+
   //Start timer and get 1st question from database
   componentDidMount() {
     API.getQuestions().then((res) => {
-      
+      let quiz = this.randomizeArray(res.data);
       this.setState({
-        quiz: res.data,
-        question: res.data[0].question,
-        choices: res.data[0].choices,
-        answer: res.data[0].answer,
+        quiz: quiz,
+        question: quiz[0].question,
+        choices: this.randomizeArray(quiz[0].choices),
+        answer: quiz[0].answer,
       });
     });
   }
@@ -39,12 +49,18 @@ class Quiz extends Component {
       if (this.state.quiz.length === this.state.index + 1) {
         console.log("You completed the game");
         this.setState({ isDone: true });
+      } else {
+        //update the page with the next set of questions
+        this.setState({ index: this.state.index + 1 }, () => {
+          this.setState({
+            question: this.state.quiz[this.state.index].question,
+            choices: this.randomizeArray(
+              this.state.quiz[this.state.index].choices
+            ),
+            answer: this.state.quiz[this.state.index].answer,
+          });
+        });
       }
-
-      //update the page with the next set of questions
-      this.setState({ index: this.state.index + 1 }, () => {
-          this.setState(this.state.quiz[this.state.index]);
-      });
     }
 
     //if guess incorrectly
