@@ -2,6 +2,7 @@ import React, {Component} from "react";
 // import question from "./testQuestions.json"
 import Timer from "../../components/Timer/Timer"
 import API from "../../util/API"
+import './Quiz.css'
 
 class Quiz extends Component{
   state = {
@@ -55,11 +56,11 @@ class Quiz extends Component{
     return (
       <div className = "container">
         <Timer wrong = {this.setState.isWrong}/>
-        <h1>{this.state.question}</h1>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[0]}>{this.state.choices[0]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[1]}>{this.state.choices[1]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[2]}>{this.state.choices[2]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[3]}> {this.state.choices[3]}</button>
+        <h1 className="question">{this.state.question}</h1>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[0]}>{this.state.choices[0]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[1]}>{this.state.choices[1]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[2]}>{this.state.choices[2]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[3]}>{this.state.choices[3]}</button>
       </div>
     );
   }

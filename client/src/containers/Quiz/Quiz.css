@@ -1,0 +1,22 @@
+.container {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.question {
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 80px;
+}
+
+.quizChoice {
+  height: 60px;
+  width: 60px;
+  font-size: 30px;
+  margin: 3px;
+}
