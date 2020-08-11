@@ -4,7 +4,6 @@ const path = require("path")
 const routes = require("./routes");
 const router = require("./routes");
 
-// const gameController = require("./controllers/game")
 
 
 
@@ -20,11 +19,6 @@ app.use(express.static("client/build"));
 
 app.use(routes)
 
-// app.get("/api/config", (req, res) => {
-//     res.json({
-//         success: true
-//     });
-// })
 
 
 mongoose
