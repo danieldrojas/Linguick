@@ -12,6 +12,7 @@ class Quiz extends Component {
     answer: "",
     index: 0,
     isDone: false,
+    wrongMessage: "",
   };
 
   randomizeArray(oldArray) {
@@ -42,12 +43,10 @@ class Quiz extends Component {
     //check if the guess is correct
     console.log(event.target.value);
     if (event.target.value === this.state.answer) {
-      console.log("You Guessed Correctly");
       //handling for when the game is completed
       console.log(this.state.index);
 
       if (this.state.quiz.length === this.state.index + 1) {
-        console.log("You completed the game");
         this.setState({ isDone: true });
       } else {
         //update the page with the next set of questions
@@ -58,6 +57,7 @@ class Quiz extends Component {
               this.state.quiz[this.state.index].choices
             ),
             answer: this.state.quiz[this.state.index].answer,
+            wrongMessage:"",
           });
         });
       }
@@ -65,7 +65,7 @@ class Quiz extends Component {
 
     //if guess incorrectly
     else {
-      console.log("You Guessed Incorrectly");
+      this.setState({ wrongMessage: "Wrong Answer" });
       console.log(event.target.value);
     }
   };
@@ -75,6 +75,7 @@ class Quiz extends Component {
       <div className="container">
         <Timer isDone={this.state.isDone} />
         <h1 className="question">{this.state.question}</h1>
+
         <button
           className="quizChoice"
           onClick={this.handleButtonPress}
@@ -82,6 +83,7 @@ class Quiz extends Component {
         >
           {this.state.choices[0]}
         </button>
+
         <button
           className="quizChoice"
           onClick={this.handleButtonPress}
@@ -89,6 +91,7 @@ class Quiz extends Component {
         >
           {this.state.choices[1]}
         </button>
+
         <button
           className="quizChoice"
           onClick={this.handleButtonPress}
@@ -96,6 +99,7 @@ class Quiz extends Component {
         >
           {this.state.choices[2]}
         </button>
+
         <button
           className="quizChoice"
           onClick={this.handleButtonPress}
@@ -103,6 +107,7 @@ class Quiz extends Component {
         >
           {this.state.choices[3]}
         </button>
+        {this.state.wrongMessage === "" ? <></> : <h6>{this.state.wrongMessage}</h6>}
       </div>
     );
   }
