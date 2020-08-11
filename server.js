@@ -30,7 +30,7 @@ app.use(routes)
 
 
 mongoose
-    .connect(process.env.MONGOD_URI || "mongodb://localhost/linguick",
+    .connect(process.env.MONGODB_URI || "mongodb://localhost/linguick",
         {
             useNewUrlParser: true,
             useUnifiedTopology: true
