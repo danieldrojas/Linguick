@@ -1,10 +1,11 @@
 import React, { Component, useState, useEffect } from "react";
 import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
 import "./User.css";
+import { Link } from "react-router-dom";
 
 class User extends Component {
   state = {
-    username: "Test Name",
+    username: "username",
     quizes: [
       { quizName: "Korean Letters", score: 100 },
       { quizName: "Korean Letters", score: 90 },
@@ -18,7 +19,7 @@ class User extends Component {
     return (
       <div className="container">
         <h1>Welcome to your dashboard, {this.state.username}</h1>
-        <p>See world rankings</p>
+        <Link to="/leaderboard">See world rankings</Link>
         <h2>Quizzes Taken:</h2>
         <tbody className="table">
           <tr>
