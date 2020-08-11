@@ -4,8 +4,12 @@ const db = require("../models");
 // Defining methods for the question Model
 module.exports = {
     findAll: function (req, res) {
-        db.Question.find(req.query)
-            .then(dbQuestions => res.json(dbQuestions))
+        db.Question.find(req.query)        
+            .then(dbQuestions => {
+                console.log("hit the find methid: ", dbQuestions)
+                res.json(dbQuestions)
+            })
+          
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
