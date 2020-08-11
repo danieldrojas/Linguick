@@ -53,6 +53,78 @@ const characterseed = [
     choices: ["ah", "e", "eu", "li"],
     answer: "e",
   },
+  {
+    question: "ㄱ",
+    choices: ["b", "g", "r", "j"],
+    answer: "g",
+  },
+  {
+    question: "ㄴ",
+    choices: ["n", "r", "l", "t"],
+    answer: "n",
+  },
+  {
+    question: "ㄷ",
+    choices: ["o", "r", "d", "c"],
+    answer: "d",
+  },
+  {
+    question: "ㄹ",
+    choices: ["s", "f", "r", "z"],
+    answer: "r",
+  },
+  {
+    question: "ㅁ",
+    choices: ["m", "y", "k", "g"],
+    answer: "m",
+  },
+  {
+    question: "ㅂ",
+    choices: ["b", "q", "d", "j"],
+    answer: "b",
+  },
+  {
+    question: "ㅅ",
+    choices: ["s", "h", "w", "v"],
+    answer: "s",
+  },
+  {
+    question: "ㅇ",
+    choices: ["o", "v", "p", "z"],
+    answer: "o",
+  },
+  
+  {
+    question: "ㅈ",
+    choices: ["c", "s", "l", "j"],
+    answer: "c",
+  },
+  
+  {
+    question: "ㅊ",
+    choices: ["y", "ch", "r", "m"],
+    answer: "ch",
+  },
+  {
+    question: "ㅋ",
+    choices: ["k", "w", "v", "x"],
+    answer: "k",
+  },
+  {
+    question: "ㅌ",
+    choices: ["x", "t", "l", "f"],
+    answer: "t",
+  },
+  {
+    question: "ㅍ",
+    choices: ["b", "r", "p", "t"],
+    answer: "p",
+  },
+  {
+    question: "ㅎ",
+    choices: ["d", "p", "q", "h"],
+    answer: "h",
+  },
 ];
 db.Question.remove({})
   .then(() => db.Question.collection.insertMany(characterseed))
@@ -67,3 +139,5 @@ db.Question.remove({})
 
 //questions: ㄱ , ㄴ, ㄷ, ㄹ ,ㅁ, ㅂ, ㅅ, ㅇ, ㅈ ,ㅊ ,ㅋ, ㅌ ,ㅍ ,ㅎ, ㅏ ,ㅑ ,ㅓ ,ㅕ ,ㅗ ,ㅛ, ㅜ ,ㅠ ,ㅡ ,ㅣ
 //answers:   g ,  n ,d ,r,  m ,b,  s, o,  c ,ch, k ,t , p ,h, a, ya ,eo ,yeo, o ,yo, uu,  yu , eu , e
+
+// korean alphabet:consonants(could be separated out into diff quiz)
