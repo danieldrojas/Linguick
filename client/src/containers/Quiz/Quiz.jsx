@@ -28,6 +28,8 @@ class Quiz extends Component{
     console.log(event.target.value)
     if(event.target.value === this.state.answer){
       console.log("You Guessed Correctly")
+      console.log("event target id", event.target.id)
+      console.log("answer :", this.state.answer)
 
       //handling for when the game is completed
       if(this.state.quizLength === this.state.index+1){
