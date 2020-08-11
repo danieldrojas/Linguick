@@ -2,6 +2,7 @@ import React, {Component} from "react";
 //import Timer from '../../components/Timer/Timer'
 import question from "./testQuestions.json"
 import Timer from "../../components/Timer/Timer"
+import API from "../../util/API"
 
 class Quiz extends Component{
   state = {
@@ -13,7 +14,15 @@ class Quiz extends Component{
   
 //Start timer and get 1st question from database
   componentDidMount(){
-    this.setState(question[0]) 
+      API.getQuestions().then(({ data }) => {
+        console.log("this is my questions from database: ", data[0])
+        this.setState(data[0]) 
+        console.log(this.answer)
+
+      }).catch((err) => {
+        console.log(err)
+      })
+  
   }
 
   handleButtonPress = (event) => {
@@ -21,6 +30,8 @@ class Quiz extends Component{
     //check if the guess is correct
     if(event.target.id === this.state.answer){
       console.log("You Guessed Correctly")
+      console.log("event target id", event.target.id)
+      console.log("answer :", this.state.answer)
 
       //handling for when the game is completed
       if(question.length === this.state.index+1){
