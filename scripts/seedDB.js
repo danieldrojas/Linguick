@@ -50,7 +50,7 @@ const characterseed = [
     answer: "eu",
   }, {
     question: "ㅣ",
-    choices: ["ah", "ei", "eu", "li"],
+    choices: ["ah", "e", "eu", "li"],
     answer: "e",
   },
 ];
