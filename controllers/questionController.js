@@ -6,7 +6,6 @@ module.exports = {
     findAll: function (req, res) {
         db.Question.find(req.query)        
             .then(dbQuestions => {
-                console.log("hit the find methid: ", dbQuestions)
                 res.json(dbQuestions)
             })
           
