@@ -14,11 +14,11 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  useEffect(() => {
-    axios.get("/api/config").then((res) => {
-      console.log(res.data);
-    });
-  });
+  // useEffect(() => {
+  //   axios.get("/api/config").then((res) => {
+  //     console.log(res.data);
+  //   });
+  // });
   return (
     <>
       <Router>
