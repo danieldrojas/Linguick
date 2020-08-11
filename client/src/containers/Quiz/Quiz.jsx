@@ -15,6 +15,7 @@ class Quiz extends Component {
     wrongMessage: "",
   };
 
+  //function to randomize an array
   randomizeArray(oldArray) {
     var newArray = [];
     for (var i = oldArray.length; i > 0; i--) {
@@ -41,11 +42,8 @@ class Quiz extends Component {
   handleButtonPress = (event) => {
     event.preventDefault();
     //check if the guess is correct
-    console.log(event.target.value);
     if (event.target.value === this.state.answer) {
       //handling for when the game is completed
-      console.log(this.state.index);
-
       if (this.state.quiz.length === this.state.index + 1) {
         this.setState({ isDone: true });
       } else {
@@ -66,7 +64,6 @@ class Quiz extends Component {
     //if guess incorrectly
     else {
       this.setState({ wrongMessage: "Wrong Answer" });
-      console.log(event.target.value);
     }
   };
 

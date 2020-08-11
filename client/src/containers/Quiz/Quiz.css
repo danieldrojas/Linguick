@@ -19,4 +19,9 @@
   width: 60px;
   font-size: 30px;
   margin: 3px;
+  text-align: center;
+}
+
+.quizChoice:focus{
+  background-color: rgb(239, 239, 239) ;
 }
