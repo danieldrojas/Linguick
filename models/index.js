@@ -1,4 +1,4 @@
 module.exports = {
   Question: require("./Question"),
-  // Language: require("./Language"),
+  User: require("./User"),
 };

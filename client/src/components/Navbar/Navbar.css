@@ -1,0 +1,9 @@
+.navbar {
+    background-color: blue;
+    padding-left: 10px;
+}
+
+#logo {
+    font-size: 36px;
+    font-weight: bold;
+}

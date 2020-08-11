@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
 //import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
 
 const Timer = (props) => {
@@ -19,7 +18,7 @@ const Timer = (props) => {
         window.location.href = "/leaderboard"
       }
     }, 1000);
-  }, [timer]);
+  }, [timer,props.isDone]);
 
   return (
     <div>

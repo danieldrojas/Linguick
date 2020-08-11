@@ -2,6 +2,7 @@ import React, {Component} from "react";
 // import question from "./testQuestions.json"
 import Timer from "../../components/Timer/Timer"
 import API from "../../util/API"
+import './Quiz.css'
 
 class Quiz extends Component{
   state = {
@@ -27,11 +28,10 @@ class Quiz extends Component{
     console.log(event.target.value)
     if(event.target.value === this.state.answer){
       console.log("You Guessed Correctly")
-      console.log("event target id", event.target.id)
-      console.log("answer :", this.state.answer)
-      console.log(this.state.quizLength)
-      console.log(this.state.index+1)
       //handling for when the game is completed
+      console.log(this.state.quizLength)
+      console.log(this.state.index)
+
       if(this.state.quizLength === this.state.index+1){
         console.log("You completed the game")
         this.setState({isDone:true})
@@ -57,11 +57,11 @@ class Quiz extends Component{
     return (
       <div className = "container">
         <Timer isDone = {this.state.isDone}/>
-        <h1>{this.state.question}</h1>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[0]}>{this.state.choices[0]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[1]}>{this.state.choices[1]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[2]}>{this.state.choices[2]}</button>
-        <button onClick = {this.handleButtonPress} value = {this.state.choices[3]}> {this.state.choices[3]}</button>
+        <h1 className="question">{this.state.question}</h1>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[0]}>{this.state.choices[0]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[1]}>{this.state.choices[1]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[2]}>{this.state.choices[2]}</button>
+        <button className="quizChoice" onClick = {this.handleButtonPress} value = {this.state.choices[3]}>{this.state.choices[3]}</button>
       </div>
     );
   }
