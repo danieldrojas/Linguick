@@ -9,17 +9,16 @@ class Quiz extends Component{
     choices: [],
     answer:"",
     index:0,
-    quizLength:0
+    quizLength:0,
+    isDone:false
   };
   
 //Start timer and get 1st question from database
   componentDidMount(){
-
       API.getQuestions().then(res =>{
         this.setState(res.data[0])
         this.setState({quizLength:res.data.length})
       })
-
   }
 
   handleButtonPress = (event) => {
@@ -30,15 +29,16 @@ class Quiz extends Component{
       console.log("You Guessed Correctly")
       console.log("event target id", event.target.id)
       console.log("answer :", this.state.answer)
-
+      console.log(this.state.quizLength)
+      console.log(this.state.index+1)
       //handling for when the game is completed
       if(this.state.quizLength === this.state.index+1){
         console.log("You completed the game")
-        window.location.href = "/leaderboard"
+        this.setState({isDone:true})
       }
+
       //update the page with the next set of questions
       this.setState({index:this.state.index +1} , ()=>{
-        //this.setState(question[this.state.index])
         API.getQuestions().then(res =>{
           this.setState(res.data[this.state.index])
         })
@@ -56,7 +56,7 @@ class Quiz extends Component{
   render(){
     return (
       <div className = "container">
-        <Timer wrong = {this.setState.isWrong}/>
+        <Timer isDone = {this.state.isDone}/>
         <h1>{this.state.question}</h1>
         <button onClick = {this.handleButtonPress} value = {this.state.choices[0]}>{this.state.choices[0]}</button>
         <button onClick = {this.handleButtonPress} value = {this.state.choices[1]}>{this.state.choices[1]}</button>
