@@ -19,9 +19,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-router.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+
 
 app.use(express.static("client/build"));
 
