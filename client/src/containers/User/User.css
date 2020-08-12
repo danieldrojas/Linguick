@@ -1,0 +1,20 @@
+.table {
+  margin: auto;
+}
+
+td,
+th {
+  height: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  padding: 3px;
+}
+
+.quizNameCol {
+  width: 150px;
+}
+
+.scoreCol {
+  width: 30px;
+}

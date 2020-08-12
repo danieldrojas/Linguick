@@ -7,14 +7,18 @@ const Timer = (props) => {
   useEffect(() => {
     let timerCount = timer
     const interval = setInterval(() => {
+      if(props.isDone){
+        clearInterval(interval)
+        window.location.href = "/user"
+      }
       timerCount--
       setTimer(timerCount);
       if (timerCount <= 0) {
         clearInterval(interval);
-        window.location.href = "/leaderboard"
+        window.location.href = "/user"
       }
     }, 1000);
-  }, [timer]);
+  }, [timer,props.isDone]);
 
   return (
     <div>

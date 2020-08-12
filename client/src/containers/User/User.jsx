@@ -1,20 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { Component, useState, useEffect } from "react";
+import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
+import "./User.css";
+import { Link } from "react-router-dom";
 
-const User = () => {
+class User extends Component {
+  state = {
+    username: "username",
+    quizes: [
+      { quizName: "Korean Letters", score: 100 },
+      { quizName: "Korean Letters", score: 90 },
+      { quizName: "Korean Letters", score: 60 },
+      { quizName: "Korean Letters", score: 80 },
+      { quizName: "Korean Letters", score: 70 },
+    ],
+  };
+
+  render() {
     return (
-        <div className="container">
-            <h1>Welcome to your dashboard, username</h1>
-            <p>See world rankings</p>
-            <h2>Quizzes Taken:</h2>
-            <ul>
-                {/* Create component for each quiz score */}
-                <li>Quiz name: score</li>
-                <li>Quiz name: score</li>
-                <li>Quiz name: score</li>
-                <li>Quiz name: score</li>
-            </ul>
-        </div>
+      <div className="container">
+        <h1>Welcome to your dashboard, {this.state.username}</h1>
+        <Link to="/leaderboard">See world rankings</Link>
+        <h2>Quizzes Taken:</h2>
+        <tbody className="table">
+          <tr>
+            <th>Quiz Name</th>
+            <th>Score</th>
+          </tr>
+          {this.state.quizes.map((quiz) => (
+            <UDQuizSore quizName={quiz.quizName} score={quiz.score} />
+          ))}
+        </tbody>
+      </div>
     );
-};
+  }
+}
 
 export default User;
