@@ -43,7 +43,10 @@ class Quiz extends Component {
     event.preventDefault();
     //check if the guess is correct
     if (event.target.value === this.state.answer) {
-
+      let btn = document.querySelectorAll(`button`)
+      for(let i =0; i<btn.length;i++){
+        btn[i].className = "quizChoice btn"
+      }
       //handling for when the game is completed
       if (this.state.quiz.length === this.state.index + 1) {
         this.setState({ isDone: true });
@@ -65,8 +68,12 @@ class Quiz extends Component {
     //if guess incorrectly
     else {
       this.setState({ wrongMessage: "Wrong Answer" });
+      console.log("hit")
+      document.querySelector(`button[value=${event.target.value}]`).className = "quizChoice btn wrong"
     }
   };
+
+
 
   render() {
     return (
