@@ -9,8 +9,18 @@ const QuizSchema = new Schema({
   },
   questions: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Question",
+      question: {
+        type: String,
+      },
+      choices: [
+        {
+          type: String,
+        },
+      ],
+      answer: {
+        type: String,
+        required: true,
+      },
     },
   ],
 });
