@@ -37,3 +37,12 @@
 .wrong:focus{
   background-color: red;
 }
+.penalty{
+  background-color: grey;
+}
+.penalty:hover{
+  background-color: grey;
+}
+.penalty:focus{
+  background-color: grey;
+}
