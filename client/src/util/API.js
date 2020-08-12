@@ -8,9 +8,9 @@ export default {
     getUserInfo: function(id) {
     return axios.get("/api/user/" + id)
     }
-    // // Gets the post with the given id
-    // getPost: function (id) {
-    //     return axios.get("/api/posts/" + id);
+    // Gets the post with the given id
+    // createUser: function (id) {
+    //     return axios.post("/api/user/" + id);
     // },
     // // Deletes the post with the given id
     // deletePost: function (id) {
