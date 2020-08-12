@@ -6,16 +6,15 @@ import API from "../../util/API";
 
 class Leaderboard extends Component {
   state = {
-    quizes: []
-      
-      // { username: "User 1", quizName: "Korean Alphabet", score: 100 },
-      // { username: "User 2", quizName: "Korean Alphabet", score: 100 },
-      // { username: "User 3", quizName: "Korean Alphabet", score: 90 },
-      // { username: "User 4", quizName: "Korean Alphabet", score: 80 },
-      // { username: "User 5", quizName: "Korean Alphabet", score: 70 },
-      // { username: "User 6", quizName: "Korean Alphabet", score: 60 },
-      // { username: "User 7", quizName: "Korean Alphabet", score: 50 },
-    ,
+    quizes: [],
+
+    // { username: "User 1", quizName: "Korean Alphabet", score: 100 },
+    // { username: "User 2", quizName: "Korean Alphabet", score: 100 },
+    // { username: "User 3", quizName: "Korean Alphabet", score: 90 },
+    // { username: "User 4", quizName: "Korean Alphabet", score: 80 },
+    // { username: "User 5", quizName: "Korean Alphabet", score: 70 },
+    // { username: "User 6", quizName: "Korean Alphabet", score: 60 },
+    // { username: "User 7", quizName: "Korean Alphabet", score: 50 },
   };
 
   scoreArray = [];
@@ -24,13 +23,42 @@ class Leaderboard extends Component {
 
   componentDidMount() {
     API.getAllUsers({}).then((res) => {
-      this.scoreArray.push(res.data)
-      this.setState({quizes: this.scoreArray[0]});
+      // this.scoreArray.push(res.data);
+      this.getHighScores(res.data);
+      // this.setState({quizes: this.scoreArray[0]});
       // console.log(this.state.quizes.res.data);
     });
     // const user = this.context
 
     // console.log("this is from learderboard: ",user)
+  }
+
+  getHighScores(array) {
+    for (var i = 0; i < array.length; i++) {
+      let newUsername = array[i].username;
+      let newQuizName = "";
+      let newScore = "";
+      for (let j = 0; j < array[i].quizzes_taken.length; j++) {
+        newQuizName = array[i].quizzes_taken[j].quizName;
+        newScore = array[i].quizzes_taken[j].score;
+        this.scoreArray.push({ newUsername, newQuizName, newScore });
+      }
+      this.scoreArray.sort(this.sortScores);
+      this.setState({ quizes: this.scoreArray });
+    }
+  }
+
+  sortScores(a, b) {
+    const scoreA = a.newScore;
+    const scoreB = b.newScore;
+
+    let comparison = 0;
+    if (scoreA > scoreB) {
+      comparison = 1;
+    } else if (scoreA < scoreB) {
+      comparison = -1;
+    }
+    return comparison * -1;
   }
 
   render() {
@@ -41,16 +69,18 @@ class Leaderboard extends Component {
 
         <tbody>
           <tr>
+            <th>Rank</th>
             <th>Name</th>
             <th>Quiz</th>
             <th>Score</th>
           </tr>
           {console.log(this.state.quizes)}
-          {this.state.quizes.map(quiz => (
+          {this.state.quizes.map((quiz) => (
             <HighScoreEl
-              username={quiz.username}
-              quizName={quiz.quizzes_taken[0].quizName}
-              score={quiz.quizzes_taken[0].score}
+              rank={this.state.quizes.indexOf(quiz) + 1}
+              username={quiz.newUsername}
+              quizName={quiz.newQuizName}
+              score={quiz.newScore}
             />
           ))}
         </tbody>
