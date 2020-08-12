@@ -4,14 +4,9 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/linguick");
 const characterseed = [
   {
-    language_name: "Korean",
-    quiz_name: "Korean Vowels",
-    quiz_question: [
-      {
-        question: "ㅏ",
-        choices: ["uu", "ya", "eu", "ah"],
-        answer: "ah",
-      },
+    quiz_name: "Korean Consonants",
+    questions: [
+      { question: "ㅏ", choices: ["uu", "ya", "eu", "ah"], answer: "ah" },
       {
         question: "ㅑ",
         choices: ["o", "ah", "yeo", "ya"],
@@ -57,6 +52,11 @@ const characterseed = [
         choices: ["ah", "e", "eu", "li"],
         answer: "e",
       },
+    ],
+  },
+  {
+    quiz_name: "Korean Vowels",
+    questions: [
       {
         question: "ㄱ",
         choices: ["b", "g", "r", "j"],
@@ -131,13 +131,9 @@ const characterseed = [
       },
     ],
   },
-  {
-    language_name: "Korean",
-    quiz_name: "Korean Consanent",
-  }
 ];
-db.Question.remove({})
-  .then(() => db.Question.collection.insertMany(characterseed))
+db.Quiz.remove({})
+  .then(() => db.Quiz.collection.insertMany(characterseed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
