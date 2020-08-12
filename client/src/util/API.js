@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     // Gets all posts
     getQuestions: function () {
-        return axios.get("/api/question");
+        return axios.get("/api/quiz");
     },
     getUserInfo: function(id) {
     return axios.get("/api/user/" + id)

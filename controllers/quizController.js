@@ -4,6 +4,7 @@ db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.Quiz.find(req.query)
+            .populate("questions")
             .then(dbQuizzes => {
                 console.log("we hit the quiz: ", dbQuizzes)
                 res.json(dbQuizzes)
