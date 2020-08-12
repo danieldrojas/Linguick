@@ -29,8 +29,8 @@ class Quiz extends Component {
 
   //Start timer and get 1st question from database
   componentDidMount() {
-    API.getQuestions().then((res) => {
-      let quiz = this.randomizeArray(res.data);
+    API.getOneQuiz("5f342b10a776af49182f4c14").then((res) => {
+      let quiz = this.randomizeArray(res.data.questions);
       this.setState({
         quiz: quiz,
         question: quiz[0].question,

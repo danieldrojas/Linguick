@@ -7,7 +7,6 @@ module.exports = {
       .then((dbQuestions) => {
         res.json(dbQuestions);
       })
-
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
