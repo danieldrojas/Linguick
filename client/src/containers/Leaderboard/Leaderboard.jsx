@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HighScoreEl from "../../components/HighScoreEl/HighScoreEl";
+import { UserConsumer } from "../../util/UserContext"
 
 class Leaderboard extends Component {
   state = {
@@ -13,6 +14,14 @@ class Leaderboard extends Component {
       { username: "User 7", quizName: "Korean Alphabet", score: 50 },
     ],
   };
+
+
+
+  // componentDidMount() {
+  //   const user = this.context
+
+  //   console.log("this is from learderboard: ",user)
+  // }
 
   render() {
     return (
@@ -32,9 +41,26 @@ class Leaderboard extends Component {
               quizName={quiz.quizName}
               score={quiz.score}
             />
+
           ))}
+
         </tbody>
+
+        <div>
+          <UserConsumer>
+            {(props) => {
+              return (
+                <>
+                  <h1>user: {props.name}</h1>
+                  <h1>email: {props.email}</h1>
+                  <h1>scores: {props.total_scores}</h1>
+                </>
+              )
+            }}
+          </UserConsumer>
+        </div>
       </div>
+     
     );
   }
 }
