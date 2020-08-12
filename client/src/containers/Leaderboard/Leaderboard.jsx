@@ -1,26 +1,35 @@
 import React, { Component } from "react";
 import HighScoreEl from "../../components/HighScoreEl/HighScoreEl";
 import { UserConsumer } from "../../util/UserContext"
+import APR from '../../util/API'
+import API from "../../util/API";
 
 class Leaderboard extends Component {
   state = {
-    quizes: [
-      { username: "User 1", quizName: "Korean Alphabet", score: 100 },
-      { username: "User 2", quizName: "Korean Alphabet", score: 100 },
-      { username: "User 3", quizName: "Korean Alphabet", score: 90 },
-      { username: "User 4", quizName: "Korean Alphabet", score: 80 },
-      { username: "User 5", quizName: "Korean Alphabet", score: 70 },
-      { username: "User 6", quizName: "Korean Alphabet", score: 60 },
-      { username: "User 7", quizName: "Korean Alphabet", score: 50 },
-    ],
+    quizes: {
+      res: {
+        data: []
+      }
+      // { username: "User 1", quizName: "Korean Alphabet", score: 100 },
+      // { username: "User 2", quizName: "Korean Alphabet", score: 100 },
+      // { username: "User 3", quizName: "Korean Alphabet", score: 90 },
+      // { username: "User 4", quizName: "Korean Alphabet", score: 80 },
+      // { username: "User 5", quizName: "Korean Alphabet", score: 70 },
+      // { username: "User 6", quizName: "Korean Alphabet", score: 60 },
+      // { username: "User 7", quizName: "Korean Alphabet", score: 50 },
+    },
   };
 
 
 
   componentDidMount() {
-    const user = this.context
+    API.getAllUsers({}).then((res) => {
+      this.setState({quizes: {res}})
+      console.log(this.state.quizes.res.data)
+    })
+    // const user = this.context
 
-    console.log("this is from learderboard: ",user)
+    // console.log("this is from learderboard: ",user)
   }
 
   render() {
@@ -35,7 +44,7 @@ class Leaderboard extends Component {
             <th>Quiz</th>
             <th>Score</th>
           </tr>
-          {this.state.quizes.map((quiz) => (
+          {this.state.quizes.res.data.map((quiz) => (
             <HighScoreEl
               username={quiz.username}
               quizName={quiz.quizName}
