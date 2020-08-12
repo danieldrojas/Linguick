@@ -12,12 +12,16 @@ export default {
     getUser: function (id) {
         return axios.get("/api/user/" + id);
     },
+
+    getAllUsers: function() {
+        return axios.get("/api/user")
+    },
     // Deletes the post with the given id
     deleteUser: function (id) {
         return axios.delete("/api/user/" + id);
     },
     // Saves a post to the database
-    saveUser: function (postData) {
+    savePost: function (postData) {
         return axios.post("/api/user", postData);
     }
 };
