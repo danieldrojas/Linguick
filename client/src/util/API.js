@@ -7,7 +7,7 @@ export default {
     },
     getUserInfo: function(id) {
     return axios.get("/api/user/" + id)
-    }
+    },
     // // Gets the post with the given id
     // getPost: function (id) {
     //     return axios.get("/api/posts/" + id);
@@ -17,7 +17,7 @@ export default {
     //     return axios.delete("/api/posts/" + id);
     // },
     // // Saves a post to the database
-    // savePost: function (postData) {
-    //     return axios.post("/api/posts", postData);
-    // }
+    savePost: function (postData) {
+        return axios.post("/api/user/signup", postData);
+    }
 };
