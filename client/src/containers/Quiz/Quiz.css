@@ -17,6 +17,14 @@
 .quizChoice {
   height: 60px;
   width: 60px;
+  padding:0px;
   font-size: 30px;
   margin: 3px;
+}
+.btn:focus{
+  outline:0;
+  background-color: #26a69a;
+}
+.btn:hover{
+  background-color: #26a69a;
 }

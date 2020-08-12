@@ -12,8 +12,10 @@ class Quiz extends Component {
     answer: "",
     index: 0,
     isDone: false,
+    wrongMessage: "",
   };
 
+  //function to randomize an array
   randomizeArray(oldArray) {
     var newArray = [];
     for (var i = oldArray.length; i > 0; i--) {
@@ -40,16 +42,13 @@ class Quiz extends Component {
   handleButtonPress = (event) => {
     event.preventDefault();
     //check if the guess is correct
-    console.log(event.target.value);
     if (event.target.value === this.state.answer) {
-      console.log("You Guessed Correctly");
-      //handling for when the game is completed
-      console.log(this.state.index);
 
+      //handling for when the game is completed
       if (this.state.quiz.length === this.state.index + 1) {
-        console.log("You completed the game");
         this.setState({ isDone: true });
       } else {
+        
         //update the page with the next set of questions
         this.setState({ index: this.state.index + 1 }, () => {
           this.setState({
@@ -58,15 +57,14 @@ class Quiz extends Component {
               this.state.quiz[this.state.index].choices
             ),
             answer: this.state.quiz[this.state.index].answer,
+            wrongMessage:"",
           });
         });
       }
     }
-
     //if guess incorrectly
     else {
-      console.log("You Guessed Incorrectly");
-      console.log(event.target.value);
+      this.setState({ wrongMessage: "Wrong Answer" });
     }
   };
 
@@ -75,34 +73,39 @@ class Quiz extends Component {
       <div className="container">
         <Timer isDone={this.state.isDone} />
         <h1 className="question">{this.state.question}</h1>
+
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[0]}
         >
           {this.state.choices[0]}
         </button>
+
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[1]}
         >
           {this.state.choices[1]}
         </button>
+
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[2]}
         >
           {this.state.choices[2]}
         </button>
+
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[3]}
         >
           {this.state.choices[3]}
         </button>
+        {this.state.wrongMessage === "" ? <></> : <h6>{this.state.wrongMessage}</h6>}
       </div>
     );
   }
