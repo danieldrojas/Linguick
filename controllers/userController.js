@@ -30,6 +30,10 @@ module.exports = {
         db.User.findById({ _id: req.params.id })
             .then(dbUsers => dbUsers.remove())
             .then(dbUsers => res.json(dbUsers))
+      
             .catch(err => res.status(422).json(err));
+    },
+    login: function (req, res) {
+        console.log('time to login!', req.body)
     }
 };

@@ -3,11 +3,10 @@ db = require("../models");
 // Defining methods for the Quiz Model
 module.exports = {
     findAll: function (req, res) {
-        db.Quiz.find(req.query)
+        db.Quiz.find({})
             .then(dbQuizzes => {
                 res.json(dbQuizzes)
             })
-
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {

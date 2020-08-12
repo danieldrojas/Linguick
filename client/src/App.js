@@ -15,7 +15,7 @@ import Footer from "./components/Footer/Footer";
 import {UserProvider} from "./util/UserContext";
 import API from "./util/API";
 
-
+import "./App.css";
 function App() {
 
 
@@ -51,7 +51,7 @@ function App() {
 
   
   return (
-    <>
+    <div id="body">
       <Router>
         <UserProvider value={user}>
         <Navbar />
@@ -69,7 +69,7 @@ function App() {
         </UserProvider>
       </Router>
       <Footer />
-    </>
+    </div>
   );
 }
 
