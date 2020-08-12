@@ -7,17 +7,17 @@ export default {
     },
     getUserInfo: function(id) {
     return axios.get("/api/user/" + id)
+    },
+    // Gets the post with the given id
+    getUser: function (id) {
+        return axios.get("/api/user/" + id);
+    },
+    // Deletes the post with the given id
+    deleteUser: function (id) {
+        return axios.delete("/api/user/" + id);
+    },
+    // Saves a post to the database
+    saveUser: function (postData) {
+        return axios.post("/api/user", postData);
     }
-    // // Gets the post with the given id
-    // getPost: function (id) {
-    //     return axios.get("/api/posts/" + id);
-    // },
-    // // Deletes the post with the given id
-    // deletePost: function (id) {
-    //     return axios.delete("/api/posts/" + id);
-    // },
-    // // Saves a post to the database
-    // savePost: function (postData) {
-    //     return axios.post("/api/posts", postData);
-    // }
 };
