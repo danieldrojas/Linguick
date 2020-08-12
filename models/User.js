@@ -18,10 +18,11 @@ const UserSchema = new Schema({
     trim: true,
     required: "Password is required",
   },
-  quizzes_taken: {
-    type: Schema.Types.ObjectId,
-    ref: "Quiz",
-  },
+  quizzes_taken: [
+    {
+      type: Object,
+    },
+  ],
   total_score: {
     type: String,
   },
