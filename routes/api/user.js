@@ -12,9 +12,9 @@ router
     // .put(userController.update)
     // .delete(userController.remove);
 
-
+///api/use/:id
 router
-    .route("/loggedin/:id")
+    .route("/:id")
     .get(userController.findById)
 
 module.exports = router;

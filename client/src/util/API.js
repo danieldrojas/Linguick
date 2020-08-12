@@ -5,6 +5,9 @@ export default {
     getQuestions: function () {
         return axios.get("/api/question");
     },
+    getUserInfo: function(id) {
+    return axios.get("/api/user/" + id)
+    }
     // // Gets the post with the given id
     // getPost: function (id) {
     //     return axios.get("/api/posts/" + id);
