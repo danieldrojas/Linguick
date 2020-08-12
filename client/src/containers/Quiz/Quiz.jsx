@@ -43,10 +43,12 @@ class Quiz extends Component {
     event.preventDefault();
     //check if the guess is correct
     if (event.target.value === this.state.answer) {
+
       //handling for when the game is completed
       if (this.state.quiz.length === this.state.index + 1) {
         this.setState({ isDone: true });
       } else {
+        
         //update the page with the next set of questions
         this.setState({ index: this.state.index + 1 }, () => {
           this.setState({
@@ -60,7 +62,6 @@ class Quiz extends Component {
         });
       }
     }
-
     //if guess incorrectly
     else {
       this.setState({ wrongMessage: "Wrong Answer" });
@@ -74,7 +75,7 @@ class Quiz extends Component {
         <h1 className="question">{this.state.question}</h1>
 
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[0]}
         >
@@ -82,7 +83,7 @@ class Quiz extends Component {
         </button>
 
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[1]}
         >
@@ -90,7 +91,7 @@ class Quiz extends Component {
         </button>
 
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[2]}
         >
@@ -98,7 +99,7 @@ class Quiz extends Component {
         </button>
 
         <button
-          className="quizChoice"
+          className="quizChoice btn"
           onClick={this.handleButtonPress}
           value={this.state.choices[3]}
         >

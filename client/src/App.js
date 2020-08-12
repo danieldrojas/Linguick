@@ -25,27 +25,27 @@ function App() {
     total_scores: 91,
   })
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    loadUsers()
+  //   loadUsers()
   
-  }, []);
+  // }, []);
 
 
    
 
-  function loadUsers() {
-    API.getUserInfo("5f32d8a63ee8e5c604b93ac1")
-      .then(({data}) => {
-        console.log("testing user from db: ", data)
-        user.name = data.username;
-        user.email = data.email
+  // function loadUsers() {
+  //   API.getUserInfo("5f32d8a63ee8e5c604b93ac1")
+  //     .then(({data}) => {
+  //       console.log("testing user from db: ", data)
+  //       user.name = data.username;
+  //       user.email = data.email
           
-        setUser({...user})
+  //       setUser({...user})
 
-        console.log("this is user in app.js: ", user)
-    })
-  }
+  //       console.log("this is user in app.js: ", user)
+  //   })
+  // }
   
   //with email with can find the user in data base to access database info
 
