@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="page-footer" id="footerEl">
       <div className="footer-copyright">
         <div className="row">
-            <p>© 2014 Copyright Text</p></div>
+            <p>© 2020 Copyright</p></div>
       </div>
     </footer>
   );
