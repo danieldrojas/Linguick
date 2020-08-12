@@ -5,6 +5,7 @@ module.exports = {
     findAll: function (req, res) {
         db.Quiz.find(req.query)
             .then(dbQuizzes => {
+                console.log("we hit the quiz: ", dbQuizzes)
                 res.json(dbQuizzes)
             })
 
