@@ -4,130 +4,136 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/linguick");
 const characterseed = [
   {
-    // language_name: "Korean",
-    // characters: " ㅏ,ㅑ ,ㅓ ,ㅕ ,ㅗ ,ㅛ, ㅜ ,ㅠ ,ㅡ ,ㅣ",
-    // quiz_name:"Korean Alphabet",
-    question: "ㅏ",
-    choices: ["uu", "ya", "eu", "ah"],
-    answer: "ah",
+    quiz_name: "Korean Consonants",
+    questions: [
+      { question: "ㅏ", choices: ["uu", "ya", "eu", "ah"], answer: "ah" },
+      {
+        question: "ㅑ",
+        choices: ["o", "ah", "yeo", "ya"],
+        answer: "ya",
+      },
+      {
+        question: "ㅓ",
+        choices: ["o", "eo", "uu", "ah"],
+        answer: "eo",
+      },
+      {
+        question: "ㅕ",
+        choices: ["yeo", "yu", "eo", "o"],
+        answer: "yeo",
+      },
+      {
+        question: "ㅗ ",
+        choices: ["ya", "uu", "oo", "o"],
+        answer: "o",
+      },
+      {
+        question: "ㅛ",
+        choices: ["yeo", "oh", "yo", "ee"],
+        answer: "yo",
+      },
+      {
+        question: "ㅜ ",
+        choices: ["uu", "ee", "ah", "oo"],
+        answer: "uu",
+      },
+      {
+        question: "ㅠ",
+        choices: ["yeo", "yu", "o", "a"],
+        answer: "yu",
+      },
+      {
+        question: "ㅡ",
+        choices: ["yo", "eu", "oo", "a"],
+        answer: "eu",
+      },
+      {
+        question: "ㅣ",
+        choices: ["ah", "e", "eu", "li"],
+        answer: "e",
+      },
+    ],
   },
   {
-    question: "ㅑ",
-    choices: ["o", "ah", "yeo", "ya"],
-    answer: "ya",
-  },
-  {
-    question: "ㅓ",
-    choices: ["o", "eo", "uu", "ah"],
-    answer: "eo",
-  },
-  {
-    question: "ㅕ",
-    choices: ["yeo", "yu", "eo", "o"],
-    answer: "yeo",
-  }, 
-  {
-    question: "ㅗ ",
-    choices: ["ya", "uu", "oo", "o"],
-    answer: "o",
-  },
-  {
-    question: "ㅛ",
-    choices: ["yeo", "oh", "yo", "ee"],
-    answer: "yo",
-  },
-  {
-    question: "ㅜ ",
-    choices: ["uu", "ee", "ah", "oo"],
-    answer: "uu",
-  }, {
-    question: "ㅠ",
-    choices: ["yeo", "yu", "o", "a"],
-    answer: "yu",
-  }, {
-    question: "ㅡ",
-    choices: ["yo", "eu", "oo", "a"],
-    answer: "eu",
-  }, {
-    question: "ㅣ",
-    choices: ["ah", "e", "eu", "li"],
-    answer: "e",
-  },
-  {
-    question: "ㄱ",
-    choices: ["b", "g", "r", "j"],
-    answer: "g",
-  },
-  {
-    question: "ㄴ",
-    choices: ["n", "r", "l", "t"],
-    answer: "n",
-  },
-  {
-    question: "ㄷ",
-    choices: ["o", "r", "d", "c"],
-    answer: "d",
-  },
-  {
-    question: "ㄹ",
-    choices: ["s", "f", "r", "z"],
-    answer: "r",
-  },
-  {
-    question: "ㅁ",
-    choices: ["m", "y", "k", "g"],
-    answer: "m",
-  },
-  {
-    question: "ㅂ",
-    choices: ["b", "q", "d", "j"],
-    answer: "b",
-  },
-  {
-    question: "ㅅ",
-    choices: ["s", "h", "w", "v"],
-    answer: "s",
-  },
-  {
-    question: "ㅇ",
-    choices: ["o", "v", "p", "z"],
-    answer: "o",
-  },
-  
-  {
-    question: "ㅈ",
-    choices: ["c", "s", "l", "j"],
-    answer: "c",
-  },
-  
-  {
-    question: "ㅊ",
-    choices: ["y", "ch", "r", "m"],
-    answer: "ch",
-  },
-  {
-    question: "ㅋ",
-    choices: ["k", "w", "v", "x"],
-    answer: "k",
-  },
-  {
-    question: "ㅌ",
-    choices: ["x", "t", "l", "f"],
-    answer: "t",
-  },
-  {
-    question: "ㅍ",
-    choices: ["b", "r", "p", "t"],
-    answer: "p",
-  },
-  {
-    question: "ㅎ",
-    choices: ["d", "p", "q", "h"],
-    answer: "h",
+    quiz_name: "Korean Vowels",
+    questions: [
+      {
+        question: "ㄱ",
+        choices: ["b", "g", "r", "j"],
+        answer: "g",
+      },
+      {
+        question: "ㄴ",
+        choices: ["n", "r", "l", "t"],
+        answer: "n",
+      },
+      {
+        question: "ㄷ",
+        choices: ["o", "r", "d", "c"],
+        answer: "d",
+      },
+      {
+        question: "ㄹ",
+        choices: ["s", "f", "r", "z"],
+        answer: "r",
+      },
+      {
+        question: "ㅁ",
+        choices: ["m", "y", "k", "g"],
+        answer: "m",
+      },
+      {
+        question: "ㅂ",
+        choices: ["b", "q", "d", "j"],
+        answer: "b",
+      },
+      {
+        question: "ㅅ",
+        choices: ["s", "h", "w", "v"],
+        answer: "s",
+      },
+      {
+        question: "ㅇ",
+        choices: ["o", "v", "p", "z"],
+        answer: "o",
+      },
+
+      {
+        question: "ㅈ",
+        choices: ["c", "s", "l", "j"],
+        answer: "c",
+      },
+
+      {
+        question: "ㅊ",
+        choices: ["y", "ch", "r", "m"],
+        answer: "ch",
+      },
+      {
+        question: "ㅋ",
+        choices: ["k", "w", "v", "x"],
+        answer: "k",
+      },
+      {
+        question: "ㅌ",
+        choices: ["x", "t", "l", "f"],
+        answer: "t",
+      },
+      {
+        question: "ㅍ",
+        choices: ["b", "r", "p", "t"],
+        answer: "p",
+      },
+      {
+        question: "ㅎ",
+        choices: ["d", "p", "q", "h"],
+        answer: "h",
+      },
+    ],
   },
 ];
-db.Question.remove({})
-  .then(() => db.Question.collection.insertMany(characterseed))
+db.Quiz.remove({})
+  .then(() => db.Quiz.collection.insertMany(characterseed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
