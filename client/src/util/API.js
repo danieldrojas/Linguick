@@ -2,14 +2,17 @@ import axios from "axios";
 
 export default {
     // Gets all posts
-    getQuestions: function () {
-        return axios.get("/api/quiz");
-    },
+    // getQuestions: function () {
+    //     return axios.get("/api/quiz");
+    // },
     getUserInfo: function(id) {
     return axios.get("/api/user/" + id)
     },
     getOneQuiz: function (id) {
         return axios.get("/api/quiz/" +id);
+    },
+    getAllQuizzes: function (id) {
+        return axios.get("/api/quiz/");
     },
 
     // // Gets the post with the given id
