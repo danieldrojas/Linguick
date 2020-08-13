@@ -21,12 +21,13 @@
   font-size: 30px;
   margin: 3px;
 }
+.btn{background-color:#efcb68;}
 .btn:focus{
   outline:0;
-  background-color: #26a69a;
+  background-color: #efcb68;
 }
 .btn:hover{
-  background-color: #26a69a;
+  background-color: #efcb68;
 }
 .wrong{
   background-color: red;
