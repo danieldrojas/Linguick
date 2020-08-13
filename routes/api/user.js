@@ -21,7 +21,9 @@ router
     // .get(userController.findAll)
     .post(userController.findByEmail);
 
-///api/use/:id
-router.route("/:id").get(userController.findById);
+///api/user/:id
+router.route("/:id")
+  .get(userController.findById)
+  .put(userController.update);
 
 module.exports = router;
