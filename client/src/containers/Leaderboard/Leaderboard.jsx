@@ -65,8 +65,6 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         <h1>World Rankings</h1>
-        <h3>Username QuizName Score</h3>
-
         <tbody>
           <tr>
             <th>Rank</th>
