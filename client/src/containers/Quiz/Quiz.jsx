@@ -4,6 +4,7 @@ import Timer from "../../components/Timer/Timer";
 import API from "../../util/API";
 import "./Quiz.css";
 
+
 class Quiz extends Component {
   state = {
     quiz: [],
@@ -16,6 +17,8 @@ class Quiz extends Component {
     penalty: false,
     name:""
   };
+
+
 
   //function to randomize an array
   randomizeArray(oldArray) {
