@@ -16,8 +16,8 @@ class Navbar extends Component {
 
           <nav>
             <div className="nav-wrapper navbar">
-              <a href="#" data-target="slide-out" class="sidenav-trigger right">
-                <i class="material-icons">menu</i>
+              <a href="#" data-target="slide-out" className="sidenav-trigger right">
+                <i className="material-icons">menu</i>
               </a>
               <Link to="/" id="logo">
                 Linguick
@@ -35,7 +35,7 @@ class Navbar extends Component {
               </ul>
             </div>
           </nav>
-          <ul id="slide-out" class="sidenav">
+          <ul id="slide-out" className="sidenav">
             <li>
               <Link to="/signup">Sign Up</Link>
             </li>

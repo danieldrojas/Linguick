@@ -33,24 +33,28 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findByEmail: function (req, res) {
-        db.User.findOne({
-            where: {
-                email: req.para.email
-            },
+        console.log("this is body: ",req.body)
+        db.User.findOne({         
+                email: req.body.email
+            
         }).then((dbUser) => {
-            res.json({
-                error: false,
-                data: dbUser,
-                message: "Found a match for user!"
-            })
-        })
-            .catch((error) => {
+            if (dbUser) {
+                console.log(dbUser)
+                res.json({
+                    error: false,
+                    data: dbUser,
+                    message: "Found a match for user!"
+                })
+            } else {
+                res.json({
+                    error: true,
+                    message: "User Not Found!"
+                }).status(404)
+            }
+           
+        }).catch((error) => {
                 res.status(422)
-                    .json({
-                        error: true,
-                        data: error,
-                        message: "No match found!"
-                    })
+                    .json(error)
             })
     }
 };

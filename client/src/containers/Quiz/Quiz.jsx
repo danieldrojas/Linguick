@@ -108,7 +108,14 @@ class Quiz extends Component {
   render() {
     return (
       <div className="container">
-        <Timer isDone={this.state.isDone} quizName ={this.state.name}/>
+        {this.state.quiz.length < 1 ? (
+          <h1>
+            An error has occurred. Please return to the home page and try again.
+          </h1>
+        ) : (
+          <Timer isDone={this.state.isDone} />
+        )}
+
         <h1 className="question">{this.state.question}</h1>
 
         {this.state.choices.map((choice) => (
