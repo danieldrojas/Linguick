@@ -8,8 +8,8 @@
   border-color: black;
   border-width: 1px;
   border-radius: 5px;
-  margin-top: 10px;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 30px;
 }
 
 .page-btn {
@@ -32,4 +32,8 @@
   color: white;
   background-color: #26a69a;
   padding:5px;
+}
+
+h1{
+  font-size:40px;
 }
