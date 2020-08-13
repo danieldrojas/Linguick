@@ -11,11 +11,7 @@ router
 router
   .route("/signup")
   // .get(userController.findAll)
-    .post(userController.create);
-  
-router.route('/login')
-    .post(userController.login)
-// .put(userController.update)
+  .post(userController.create);
 // .delete(userController.remove);
 
 // Matches "/api/user/login"
@@ -23,7 +19,7 @@ router.route('/login')
 router
     .route("/login")
     // .get(userController.findAll)
-    .get(userController.findByEmail);
+    .post(userController.findByEmail);
 
 ///api/use/:id
 router.route("/:id").get(userController.findById);
