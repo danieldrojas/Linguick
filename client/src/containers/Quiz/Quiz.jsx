@@ -14,6 +14,7 @@ class Quiz extends Component {
     isDone: false,
     wrongMessage: "",
     penalty: false,
+    name:""
   };
 
   //function to randomize an array
@@ -29,15 +30,14 @@ class Quiz extends Component {
 
   //Start timer and get 1st question from database
   componentDidMount() {
-    console.log(this.props)
     API.getOneQuiz(this.props.match.params.id).then((res) => {
-      // console.log(this.props.id)
       let quiz = this.randomizeArray(res.data.questions);
       this.setState({
         quiz: quiz,
         question: quiz[0].question,
         choices: this.randomizeArray(quiz[0].choices),
         answer: quiz[0].answer,
+        name:res.data.quiz_name
       });
     });
   }
@@ -54,7 +54,10 @@ class Quiz extends Component {
         }
         //handling for when the game is completed
         if (this.state.quiz.length === this.state.index + 1) {
-          this.setState({ isDone: true });
+          this.setState({ 
+            isDone: true,
+            wrongMessage:"YOU COMPLETED THE QUIZ"
+           });
         } else {
           //update the page with the next set of questions
           this.setState({ index: this.state.index + 1 }, () => {
@@ -71,21 +74,24 @@ class Quiz extends Component {
       }
       //if guess incorrectly
       else {
+        //Give the user a wrong answer message and sets the penalty to true
         this.setState({
           wrongMessage: "Wrong Answer! Wait 1 second before trying again",
           penalty: true,
         });
+        //Change the button pressed to be red to show it is wrong
         document.querySelector(
           `button[value=${event.target.value}]`
         ).className = "quizChoice btn wrong";
 
+        //change all other buttons that are not red to be greyed out and unclickable 
         let btn = document.querySelectorAll(`button`);
         for (let i = 0; i < btn.length; i++) {
           if (!btn[i].classList.contains("wrong")) {
             btn[i].className = "quizChoice btn penalty";
           }
         }
-
+        //Time out to change the button back to their normal colors unless it was already known to be wrong
         setTimeout(() => {
           this.setState({ penalty: false });
           let btn = document.querySelectorAll(`button`);
@@ -102,7 +108,7 @@ class Quiz extends Component {
   render() {
     return (
       <div className="container">
-        <Timer isDone={this.state.isDone} />
+        <Timer isDone={this.state.isDone} quizName ={this.state.name}/>
         <h1 className="question">{this.state.question}</h1>
 
         {this.state.choices.map((choice) => (
