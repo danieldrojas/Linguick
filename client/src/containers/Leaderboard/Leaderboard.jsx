@@ -86,7 +86,7 @@ class Leaderboard extends Component {
         </tbody>
 
         <div>
-          <UserConsumer>
+          {/* <UserConsumer>
             {(props) => {
               return (
                 <>
@@ -97,7 +97,7 @@ class Leaderboard extends Component {
                 </>
               );
             }}
-          </UserConsumer>
+          </UserConsumer> */}
         </div>
       </div>
     );

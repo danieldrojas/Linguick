@@ -47,8 +47,8 @@ function App() {
   return (
     <div id="body">
       <Router>
-        <Navbar />
         <UserProvider value={user}>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/leaderboard" component={Leaderboard} />
