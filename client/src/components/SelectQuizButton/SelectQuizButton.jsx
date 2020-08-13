@@ -6,7 +6,7 @@ const SelectQuizButton = (props) => {
   return (
     <div>
       <Link to={linkAddress} id={props.id}>
-        <button>{props.quizName}</button>
+        <button className="sq-btn">{props.quizName}</button>
       </Link>
     </div>
   );

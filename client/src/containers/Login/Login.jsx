@@ -17,7 +17,7 @@ const Login = () => {
                 <input type="password" name="password" placeholder="Password" />
               </li>
             </ul>
-            <button>Log In</button>
+            <button className="page-btn">Log In</button>
           </form>
           <p>
             Don't have an account? <Link to="/signup">Sign up.</Link>{" "}

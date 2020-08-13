@@ -84,7 +84,7 @@ const Signup = () => {
                 />
               </li>
             </ul>
-            <button onClick={handleFormSubmit}>Create Account</button>
+            <button className="page-btn" onClick={handleFormSubmit}>Create Account</button>
           </form>
         </div>
       </div>
