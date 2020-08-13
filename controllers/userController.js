@@ -31,5 +31,14 @@ module.exports = {
             .then(dbUsers => dbUsers.remove())
             .then(dbUsers => res.json(dbUsers))
             .catch(err => res.status(422).json(err));
+    },
+    login: function (req, res) {
+        // find one in DB by email
+        //compare pass from req. body to pass wrom person found from DB
+
+        // if its a match return user ID to front ene
+        // if its not a match return NO A MATCH!! error
+
+
     }
 };
