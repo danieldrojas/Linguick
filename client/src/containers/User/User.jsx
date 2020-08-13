@@ -14,10 +14,15 @@ class User extends Component {
   componentDidMount() {
     // change to getUser when we have authentification worked out
     API.getAllUsers().then((res) => {
-      this.setState({ user: res.data[1] });
+      this.setState({ user: res.data[0] });
       console.log(this.state.user.quizzes_taken);
+      console.log(this.state.user.id)
     });
   }
+
+  quizArray = this.state.user.quizzes_taken;
+
+  userID = this.state.user._id
 
   render() {
     return (
@@ -36,7 +41,13 @@ class User extends Component {
             <th>Score</th>
           </tr>
           {this.state.user.quizzes_taken.map((quiz) => (
-            <UDQuizSore quizName={quiz.quizName} score={quiz.score} />
+            <UDQuizSore
+              id={quiz._id}
+              quizName={quiz.quizName}
+              score={quiz.score}
+              quizArray={this.quizArray}
+              userID = {this.userID}
+            />
           ))}
         </tbody>
       </div>
