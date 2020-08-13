@@ -29,7 +29,7 @@ class Quiz extends Component {
 
   //Start timer and get 1st question from database
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props);
     API.getOneQuiz(this.props.match.params.id).then((res) => {
       // console.log(this.props.id)
       let quiz = this.randomizeArray(res.data.questions);
@@ -102,7 +102,14 @@ class Quiz extends Component {
   render() {
     return (
       <div className="container">
-        <Timer isDone={this.state.isDone} />
+        {this.state.quiz.length < 1 ? (
+          <h1>
+            An error has occurred. Please return to the home page and try again.
+          </h1>
+        ) : (
+          <Timer isDone={this.state.isDone} />
+        )}
+
         <h1 className="question">{this.state.question}</h1>
 
         {this.state.choices.map((choice) => (
