@@ -35,7 +35,6 @@ const Login = (props) => {
           <form onSubmit={handleSubmit}>
             <ul>
               <li>
-                {" "}
                 <input
                   type="text"
                   name="email"
@@ -45,7 +44,6 @@ const Login = (props) => {
                 />
               </li>
               <li>
-                {" "}
                 <input
                   type="password"
                   name="password"
@@ -55,7 +53,7 @@ const Login = (props) => {
                 />
               </li>
             </ul>
-            <button>Log In</button>
+            <button className="page-btn">Log In</button>
           </form>
         </div>
       </div>
