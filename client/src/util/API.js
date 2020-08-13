@@ -38,6 +38,6 @@ export default {
     },
     // Saves a post to the database
     savePost: function (postData) {
-        return axios.post("/api/user", postData);
+        return axios.post("/api/user/signup", postData);
     }
 };

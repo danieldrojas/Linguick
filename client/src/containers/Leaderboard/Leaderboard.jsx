@@ -90,6 +90,7 @@ class Leaderboard extends Component {
             {(props) => {
               return (
                 <>
+                  
                   <h1>user: {props.name}</h1>
                   <h1>email: {props.email}</h1>
                   <h1>scores: {props.total_scores}</h1>

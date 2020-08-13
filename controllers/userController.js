@@ -31,5 +31,26 @@ module.exports = {
             .then(dbUsers => dbUsers.remove())
             .then(dbUsers => res.json(dbUsers))
             .catch(err => res.status(422).json(err));
+    },
+    findByEmail: function (req, res) {
+        db.User.findOne({
+            where: {
+                email: req.para.email
+            },
+        }).then((dbUser) => {
+            res.json({
+                error: false,
+                data: dbUser,
+                message: "Found a match for user!"
+            })
+        })
+            .catch((error) => {
+                res.status(422)
+                    .json({
+                        error: true,
+                        data: error,
+                        message: "No match found!"
+                    })
+            })
     }
 };
