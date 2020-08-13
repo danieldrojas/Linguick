@@ -14,6 +14,10 @@ export default {
     getAllQuizzes: function (id) {
         return axios.get("/api/quiz/");
     },
+    getUserLogin: function (email) {
+        console.log("we hitthe rpute:", email)
+        return axios.post("/api/user/login", email)
+    },
 
     // // Gets the post with the given id
     // getPost: function (id) {
