@@ -12,27 +12,22 @@ import User from "./containers/User/User";
 import NoMatch from "./containers/NoMatch/NoMatch";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import {UserProvider} from "./util/UserContext";
+import { UserProvider } from "./util/UserContext";
 import API from "./util/API";
 
 import "./App.css";
 function App() {
-
-
   const [user, setUser] = useState({
     name: "",
     email: "",
     total_scores: 91,
-  })
+  });
 
   // useEffect(() => {
 
   //   loadUsers()
-  
+
   // }, []);
-
-
-   
 
   // function loadUsers() {
   //   API.getUserInfo("5f32d8a63ee8e5c604b93ac1")
@@ -40,31 +35,31 @@ function App() {
   //       console.log("testing user from db: ", data)
   //       user.name = data.username;
   //       user.email = data.email
-          
+
   //       setUser({...user})
 
   //       console.log("this is user in app.js: ", user)
   //   })
   // }
-  
+
   //with email with can find the user in data base to access database info
 
-  
   return (
     <div id="body">
       <Router>
-        <UserProvider value={user}>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/leaderboard" component={Leaderboard} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/quiz" component={Quiz} />
-          <Route exact path="/selectquiz" component={SelectQuiz} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/updateuser" component={UpdateUser} />
-          <Route exact path="/user" component={User} />
-          <Route component={NoMatch} />
+        <UserProvider value={user}>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/leaderboard" component={Leaderboard} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/quiz" component={Quiz} />
+            <Route path="/quiz/:id" component={Quiz} />
+            <Route exact path="/selectquiz" component={SelectQuiz} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/updateuser" component={UpdateUser} />
+            <Route exact path="/user" component={User} />
+            <Route component={NoMatch} />
           </Switch>
         </UserProvider>
       </Router>
