@@ -15,10 +15,10 @@ const Login = (props) => {
       email,
     })
       .then((dbUser) => {
-        console.log("this is my dbUser ", dbUser.data);
-        if (!dbUser.error) {
-          // dbUser.data.password === password ? props.history.push : alert("Email or password invalid")
-          props.history.push("./Selectquiz");
+        if (!dbUser.data.error && dbUser.data.data.password === password) {
+       props.history.push("./Selectquiz")
+        } else {
+          alert("Password or email invalid")
         }
       })
       .catch((err) => {
