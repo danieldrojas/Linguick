@@ -15,10 +15,12 @@ router
 // .put(userController.update)
 // .delete(userController.remove);
 
+// Matches "/api/user/login"
+
 router
     .route("/login")
     // .get(userController.findAll)
-    .post(userController.login);
+    .get(userController.findByEmail);
 
 ///api/use/:id
 router.route("/:id").get(userController.findById);

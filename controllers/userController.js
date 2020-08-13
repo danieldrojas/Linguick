@@ -32,13 +32,25 @@ module.exports = {
             .then(dbUsers => res.json(dbUsers))
             .catch(err => res.status(422).json(err));
     },
-    login: function (req, res) {
-        // find one in DB by email
-        //compare pass from req. body to pass wrom person found from DB
-
-        // if its a match return user ID to front ene
-        // if its not a match return NO A MATCH!! error
-
-
+    findByEmail: function (req, res) {
+        db.User.findOne({
+            where: {
+                email: req.para.email
+            },
+        }).then((dbUser) => {
+            res.json({
+                error: false,
+                data: dbUser,
+                message: "Found a match for user!"
+            })
+        })
+            .catch((error) => {
+                res.status(422)
+                    .json({
+                        error: true,
+                        data: error,
+                        message: "No match found!"
+                    })
+            })
     }
 };
