@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import API from "../../util/API";
 //import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
-import  UserContext from "../../util/UserContext"
+import UserContext from "../../util/UserContext";
 
 const Timer = (props) => {
   const [timer, setTimer] = useState(100);
-  const { user, setUser} = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     let timerCount = timer;
-    let userLocal = JSON.parse(localStorage.getItem("UserInfo"))
-    setUser(userLocal)
+    let userLocal = JSON.parse(localStorage.getItem("UserInfo"));
+    setUser(userLocal);
     const interval = setInterval(() => {
       if (props.isDone) {
         clearInterval(interval);
@@ -27,7 +27,7 @@ const Timer = (props) => {
               score: timerCount,
               quizName: props.quizName,
             });
-            //updates the scores 
+            //updates the scores
             API.updateUser(user._id, { quizzes_taken: quizes })
               .then((res) => {
                 //go to next page
