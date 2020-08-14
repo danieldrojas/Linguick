@@ -30,6 +30,32 @@ module.exports = {
         db.User.findById({ _id: req.params.id })
             .then(dbUsers => dbUsers.remove())
             .then(dbUsers => res.json(dbUsers))
+      
             .catch(err => res.status(422).json(err));
+    },
+    findByEmail: function (req, res) {
+        console.log("this is body: ",req.body)
+        db.User.findOne({         
+                email: req.body.email
+            
+        }).then((dbUser) => {
+            if (dbUser) {
+                console.log(dbUser)
+                res.json({
+                    error: false,
+                    data: dbUser,
+                    message: "Found a match for user!"
+                })
+            } else {
+                res.json({
+                    error: true,
+                    message: "User Not Found!"
+                }).status(404)
+            }
+           
+        }).catch((error) => {
+                res.status(422)
+                    .json(error)
+            })
     }
 };

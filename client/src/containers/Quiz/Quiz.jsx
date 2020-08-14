@@ -4,6 +4,7 @@ import Timer from "../../components/Timer/Timer";
 import API from "../../util/API";
 import "./Quiz.css";
 
+
 class Quiz extends Component {
   state = {
     quiz: [],
@@ -13,7 +14,12 @@ class Quiz extends Component {
     index: 0,
     isDone: false,
     wrongMessage: "",
+    penalty: false,
+    name:"",
+    id: 0
   };
+
+
 
   //function to randomize an array
   randomizeArray(oldArray) {
@@ -28,84 +34,111 @@ class Quiz extends Component {
 
   //Start timer and get 1st question from database
   componentDidMount() {
-    API.getQuestions().then((res) => {
-      let quiz = this.randomizeArray(res.data);
+    API.getOneQuiz(this.props.match.params.id).then((res) => {
+      let quiz = this.randomizeArray(res.data.questions);
       this.setState({
         quiz: quiz,
         question: quiz[0].question,
         choices: this.randomizeArray(quiz[0].choices),
         answer: quiz[0].answer,
+        name:res.data.quiz_name,
+        id: res.data._id
       });
     });
   }
 
   handleButtonPress = (event) => {
     event.preventDefault();
-    //check if the guess is correct
-    if (event.target.value === this.state.answer) {
-
-      //handling for when the game is completed
-      if (this.state.quiz.length === this.state.index + 1) {
-        this.setState({ isDone: true });
-      } else {
-        
-        //update the page with the next set of questions
-        this.setState({ index: this.state.index + 1 }, () => {
-          this.setState({
-            question: this.state.quiz[this.state.index].question,
-            choices: this.randomizeArray(
-              this.state.quiz[this.state.index].choices
-            ),
-            answer: this.state.quiz[this.state.index].answer,
-            wrongMessage:"",
+    //if there a penalty then handleButtonPress does nothing
+    if (!this.state.penalty) {
+      //check if the guess is correct
+      if (event.target.value === this.state.answer) {
+        let btn = document.querySelectorAll(`button`);
+        for (let i = 0; i < btn.length; i++) {
+          btn[i].className = "quizChoice btn";
+        }
+        //handling for when the game is completed
+        if (this.state.quiz.length === this.state.index + 1) {
+          this.setState({ 
+            isDone: true,
+            wrongMessage:"YOU COMPLETED THE QUIZ"
+           });
+        } else {
+          //update the page with the next set of questions
+          this.setState({ index: this.state.index + 1 }, () => {
+            this.setState({
+              question: this.state.quiz[this.state.index].question,
+              choices: this.randomizeArray(
+                this.state.quiz[this.state.index].choices
+              ),
+              answer: this.state.quiz[this.state.index].answer,
+              wrongMessage: "",
+            });
           });
-        });
+        }
       }
-    }
-    //if guess incorrectly
-    else {
-      this.setState({ wrongMessage: "Wrong Answer" });
+      //if guess incorrectly
+      else {
+        //Give the user a wrong answer message and sets the penalty to true
+        this.setState({
+          wrongMessage: "Wrong Answer! Wait 1 second before trying again",
+          penalty: true,
+        });
+        //Change the button pressed to be red to show it is wrong
+        document.querySelector(
+          `button[value=${event.target.value}]`
+        ).className = "quizChoice btn wrong";
+
+        //change all other buttons that are not red to be greyed out and unclickable 
+        let btn = document.querySelectorAll(`button`);
+        for (let i = 0; i < btn.length; i++) {
+          if (!btn[i].classList.contains("wrong")) {
+            btn[i].className = "quizChoice btn penalty";
+          }
+        }
+        //Time out to change the button back to their normal colors unless it was already known to be wrong
+        setTimeout(() => {
+          this.setState({ penalty: false });
+          let btn = document.querySelectorAll(`button`);
+          for (let i = 0; i < btn.length; i++) {
+            if (!btn[i].classList.contains("wrong")) {
+              btn[i].className = "quizChoice btn";
+            }
+          }
+        }, 1000);
+      }
     }
   };
 
   render() {
     return (
       <div className="container">
-        <Timer isDone={this.state.isDone} />
+        {this.state.quiz.length < 1 ? (
+          <h1>
+            An error has occurred. Please return to the home page and try again.
+          </h1>
+        ) : (
+          <Timer isDone={this.state.isDone} quizName={this.state.name} quizId={this.state.id}/>
+        )}
+
         <h1 className="question">{this.state.question}</h1>
 
-        <button
-          className="quizChoice btn"
-          onClick={this.handleButtonPress}
-          value={this.state.choices[0]}
-        >
-          {this.state.choices[0]}
-        </button>
+        {this.state.choices.map((choice) => (
+          <button
+            key={choice}
+            className="quizChoice btn"
+            value={choice}
+            onClick={this.handleButtonPress}
+          >
+            {choice}
+          </button>
+        ))}
 
-        <button
-          className="quizChoice btn"
-          onClick={this.handleButtonPress}
-          value={this.state.choices[1]}
-        >
-          {this.state.choices[1]}
-        </button>
-
-        <button
-          className="quizChoice btn"
-          onClick={this.handleButtonPress}
-          value={this.state.choices[2]}
-        >
-          {this.state.choices[2]}
-        </button>
-
-        <button
-          className="quizChoice btn"
-          onClick={this.handleButtonPress}
-          value={this.state.choices[3]}
-        >
-          {this.state.choices[3]}
-        </button>
-        {this.state.wrongMessage === "" ? <></> : <h6>{this.state.wrongMessage}</h6>}
+        {this.state.wrongMessage === "" ? (
+          <></>
+        ) : (
+          <h6>{this.state.wrongMessage}</h6>
+        )}
       </div>
     );
   }

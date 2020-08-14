@@ -11,6 +11,11 @@ th {
   padding: 3px;
 }
 
+th {
+  background-color: #26a69a;
+  color: white;
+}
+
 .quizNameCol {
   width: 150px;
 }

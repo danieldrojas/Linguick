@@ -22,7 +22,6 @@ const Signup = () => {
       alert("The passwords need to match");
     }
     if (formObject.username && formObject.email && formObject.password) {
-
       API.savePost({
         username: formObject.username,
         email: formObject.email,
@@ -39,6 +38,7 @@ const Signup = () => {
         .catch((err) => console.log(err));
     }
   }
+  
   return (
     <div className="container">
       <h1>Sign Up</h1>
@@ -84,7 +84,7 @@ const Signup = () => {
                 />
               </li>
             </ul>
-            <button onClick={handleFormSubmit}>Create Account</button>
+            <button className="page-btn" onClick={handleFormSubmit}>Create Account</button>
           </form>
         </div>
       </div>

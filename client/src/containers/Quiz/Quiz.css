@@ -21,10 +21,29 @@
   font-size: 30px;
   margin: 3px;
 }
+.btn{background-color:#efcb68;}
 .btn:focus{
   outline:0;
-  background-color: #26a69a;
+  background-color: #efcb68;
 }
 .btn:hover{
-  background-color: #26a69a;
+  background-color: #efcb68;
+}
+.wrong{
+  background-color: red;
+}
+.wrong:hover{
+  background-color: red;
+}
+.wrong:focus{
+  background-color: red;
+}
+.penalty{
+  background-color: grey;
+}
+.penalty:hover{
+  background-color: grey;
+}
+.penalty:focus{
+  background-color: grey;
 }

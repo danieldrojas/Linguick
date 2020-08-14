@@ -4,7 +4,7 @@ const db = require("../models");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/linguick");
 const characterseed = [
   {
-    quiz_name: "Korean Consonants",
+    quiz_name: "Korean Vowels",
     questions: [
       { question: "ㅏ", choices: ["uu", "ya", "eu", "ah"], answer: "ah" },
       {
@@ -55,7 +55,7 @@ const characterseed = [
     ],
   },
   {
-    quiz_name: "Korean Vowels",
+    quiz_name: "Korean Consonants",
     questions: [
       {
         question: "ㄱ",
