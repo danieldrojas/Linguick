@@ -59,7 +59,7 @@ class User extends Component {
                 </tr>
                 {this.state.user.quizzes_taken.map((quiz) => (
                   <UDQuizSore
-                    quizId={quiz.quizId}
+                    quizId={this.state.user.quizzes_taken.indexOf(quiz)}
                     quizName={quiz.quizName}
                     score={quiz.score}
                     quizArray={this.state.user.quizzes_taken}

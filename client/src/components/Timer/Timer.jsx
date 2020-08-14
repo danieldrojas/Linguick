@@ -20,7 +20,7 @@ const Timer = (props) => {
             let quizes = res.data[0].quizzes_taken;
             //push the new scores into the database
             quizes.push({
-              quizId: props.quizId,
+              // quizId: props.quizId,
               score: timerCount,
               quizName: props.quizName,
             });
