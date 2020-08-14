@@ -1,8 +1,9 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
 import "./User.css";
 import { Link } from "react-router-dom";
 import { UserConsumer } from "../../util/UserContext";
+import API from "../../util/API";
 
 class User extends Component {
   state = {
@@ -19,8 +20,10 @@ class User extends Component {
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
     //console.log(userInfo);
 
-    this.setState({
-      user: userInfo,
+    API.getUser(userInfo._id).then((res) => {
+      this.setState({
+        user: res.data,
+      });
     });
 
     // change to getUser when we have authentification worked out
