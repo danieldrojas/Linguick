@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navbar.css";
+import LoggedInNav from "../LoggedInNav/LoggedInNav";
+import LoggedOutNav from "../LoggedOutNav/LoggedOutNav";
+
 
 class Navbar extends Component {
   componentDidMount() {
@@ -22,7 +25,6 @@ class Navbar extends Component {
   render() {
     return (
       <>
-
           <nav>
             <div className="nav-wrapper navbar">
               <a href="#" data-target="slide-out" className="sidenav-trigger right">
@@ -32,33 +34,21 @@ class Navbar extends Component {
                 Linguick
               </Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <Link onClick={this.handleLogout} to="/login">Log out</Link>
-              </li>
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                  <Link to="/user">Dashboard</Link>
-                </li>
-                <li>
-                  <Link to="/leaderboard">Leaderboard</Link>
-                </li>
+            {this.props.isLoggedIn ? (
+            <LoggedInNav />
+          ) : (
+            <LoggedOutNav />
+          )}
               </ul>
             </div>
           </nav>
           <ul id="slide-out" className="sidenav">
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/user">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </li>
+          {this.props.isLoggedIn ? (
+            <LoggedInNav />
+          ) : (
+            <LoggedOutNav />
+          )}
           </ul>
-
       </>
     );
   }
