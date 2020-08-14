@@ -45,7 +45,7 @@ const Timer = (props) => {
         window.location.href = "/user";
       }
     }, 1000);
-  }, [timer, props.isDone, props.quizName,user, setUser]);
+  }, [timer, props.isDone, props.quizName]);
   return (
     <div>
       <h3>{timer}</h3>
