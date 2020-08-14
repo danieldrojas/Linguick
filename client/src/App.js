@@ -18,7 +18,7 @@ import API from "./util/API";
 import "./App.css";
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({})
  
   return (
     <div id="body">

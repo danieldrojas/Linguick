@@ -12,10 +12,11 @@ const Login = (props) => {
  
   
 
-  const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("front end username is " + email);
     console.log("front end password is " + password);
+    console.log("user before return " + user);
 
 
     API.getUserLogin({
@@ -26,9 +27,8 @@ const Login = (props) => {
           console.log(dbUser.data.data._id)
           const userId = dbUser.data.data._id
           
-          setUser({
-            userId
-          })
+         setUser(dbUser.data.data)
+        
         
 
 
@@ -48,11 +48,13 @@ const Login = (props) => {
   return (
     < div className = "container" >
       <h1>Log in</h1>
-      <div class="row">
+      <div className="row">
 
         <div className="col s3"></div>
         <div className="col s6 signupCol">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={ (e) => {
+           handleSubmit(e);
+          }}>
             <ul>
               <li>
                 {" "}
