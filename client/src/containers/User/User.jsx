@@ -3,12 +3,10 @@ import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
 import "./User.css";
 import { Link } from "react-router-dom";
 import API from "../../util/API";
-import UserContext from "../../util/UserContext"
 import { UserConsumer } from '../../util/UserContext'
 
 class User extends Component {
 
-  static contextType = UserContext
 
 
   state = {
