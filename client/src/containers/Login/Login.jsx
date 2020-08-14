@@ -57,7 +57,6 @@ const handleSubmit = async (e) => {
           }}>
             <ul>
               <li>
-                {" "}
                 <input
                   type="text"
                   name="email"
@@ -67,7 +66,6 @@ const handleSubmit = async (e) => {
                 />
               </li>
               <li>
-                {" "}
                 <input
                   type="password"
                   name="password"
@@ -77,7 +75,7 @@ const handleSubmit = async (e) => {
                 />
               </li>
             </ul>
-            <button>Log In</button>
+            <button className="page-btn">Log In</button>
           </form>
         </div>
       </div>
