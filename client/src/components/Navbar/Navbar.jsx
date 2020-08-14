@@ -10,6 +10,15 @@ class Navbar extends Component {
       var instances = M.Sidenav.init(elems, {});
     });
   }
+
+
+ handleLogout = (event) => {
+   localStorage.clear();
+   window.location.href = "/"
+
+  }
+ 
+
   render() {
     return (
       <>
