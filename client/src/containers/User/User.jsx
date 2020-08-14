@@ -13,11 +13,18 @@ class User extends Component {
     user: {
       quizzes_taken: [],
     },
+    localUserName: ""
   };
 
   componentDidMount() {
     // const user = this.context 
     // console.log(user)
+
+    const userInfo = JSON.parse(localStorage.getItem("UserInfo"))
+    
+    this.setState({
+      localUserName: userInfo.username
+    })
 
     // change to getUser when we have authentification worked out
     API.getAllUsers().then((res) => {
@@ -36,7 +43,7 @@ class User extends Component {
         {(props) => {
           return <div>
             <div className="container">
-              <h1>Welcome to your dashboard, {props.user.username} </h1>
+              <h1>Welcome to your dashboard, {this.state.localUserName} </h1>
               {/* {console.log(props.user.username)} */}
               <Link to="/leaderboard">
                 <button class="sq-btn">See World Rankings</button>
@@ -52,7 +59,7 @@ class User extends Component {
                 </tr>
                 {this.state.user.quizzes_taken.map((quiz) => (
                   <UDQuizSore
-                    quizId={quiz.quizId}
+                    quizId={this.state.user.quizzes_taken.indexOf(quiz)}
                     quizName={quiz.quizName}
                     score={quiz.score}
                     quizArray={this.state.user.quizzes_taken}

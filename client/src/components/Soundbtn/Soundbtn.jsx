@@ -17,7 +17,7 @@ const Soundbtn = (props) => {
 
   return (
     <div>
-      <button onClick={handleClick}>Play Sound</button>
+      <button onClick={handleClick} className = "btn">Play Sound</button>
     </div>
   );
 };

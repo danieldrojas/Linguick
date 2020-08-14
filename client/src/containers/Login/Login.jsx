@@ -26,13 +26,13 @@ const handleSubmit = async (e) => {
         if (!dbUser.data.error && dbUser.data.data.password === password) {
           console.log(dbUser.data.data._id)
           const userId = dbUser.data.data._id
-          
+          console.log(dbUser)
          setUser(dbUser.data.data)
-        
-        
+          
+        // console.log(user)
 
-
-          // user.userId = dbUser.data.data._id 
+            localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))
+      
  
 
        props.history.push("./Selectquiz")

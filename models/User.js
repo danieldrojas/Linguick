@@ -20,12 +20,8 @@ const UserSchema = new Schema({
   },
   quizzes_taken: [
     {
-      score:{
-        type:Number
-      },
-      quizName:{
-        type:String
-      }
+      type: Object,
+      _id: true
     },
   ],
   total_score: {
