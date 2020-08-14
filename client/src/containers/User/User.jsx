@@ -42,9 +42,8 @@ class User extends Component {
       <UserConsumer>
         {(props) => {
           return <div>
-            <p>LocalStorage:  {this.state.localUserName}</p>
             <div className="container">
-              <h1>Welcome to your dashboard, {props.user.username} </h1>
+              <h1>Welcome to your dashboard, {this.state.localUserName} </h1>
               {/* {console.log(props.user.username)} */}
               <Link to="/leaderboard">
                 <button class="sq-btn">See World Rankings</button>
