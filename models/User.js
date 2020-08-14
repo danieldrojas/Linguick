@@ -21,6 +21,7 @@ const UserSchema = new Schema({
   quizzes_taken: [
     {
       type: Object,
+      _id: true
     },
   ],
   total_score: {
