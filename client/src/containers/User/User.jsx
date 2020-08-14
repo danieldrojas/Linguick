@@ -13,11 +13,18 @@ class User extends Component {
     user: {
       quizzes_taken: [],
     },
+    localUserName: ""
   };
 
   componentDidMount() {
     // const user = this.context 
     // console.log(user)
+
+    const userInfo = JSON.parse(localStorage.getItem("UserInfo"))
+    
+    this.setState({
+      localUserName: userInfo.username
+    })
 
     // change to getUser when we have authentification worked out
     API.getAllUsers().then((res) => {
@@ -35,6 +42,7 @@ class User extends Component {
       <UserConsumer>
         {(props) => {
           return <div>
+            <p>LocalStorage:  {this.state.localUserName}</p>
             <div className="container">
               <h1>Welcome to your dashboard, {props.user.username} </h1>
               {/* {console.log(props.user.username)} */}
