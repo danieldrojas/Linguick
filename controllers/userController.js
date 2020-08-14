@@ -30,6 +30,7 @@ module.exports = {
         db.User.findById({ _id: req.params.id })
             .then(dbUsers => dbUsers.remove())
             .then(dbUsers => res.json(dbUsers))
+      
             .catch(err => res.status(422).json(err));
     },
     findByEmail: function (req, res) {

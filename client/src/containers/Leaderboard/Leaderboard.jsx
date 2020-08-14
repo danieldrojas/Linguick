@@ -65,8 +65,6 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         <h1>World Rankings</h1>
-        <h3>Username QuizName Score</h3>
-
         <tbody>
           <tr>
             <th>Rank</th>
@@ -74,7 +72,6 @@ class Leaderboard extends Component {
             <th>Quiz</th>
             <th>Score</th>
           </tr>
-          {console.log(this.state.quizes)}
           {this.state.quizes.map((quiz) => (
             <HighScoreEl
               rank={this.state.quizes.indexOf(quiz) + 1}

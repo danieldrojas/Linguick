@@ -1,24 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import API from "../../util/API";
+import  UserContext from "../../util/UserContext"
+
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+  const { user, setUser} = useContext(UserContext)
+ 
+  
 
-  const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("front end username is " + email);
     console.log("front end password is " + password);
+    console.log("user before return " + user);
+
 
     API.getUserLogin({
       email,
     })
       .then((dbUser) => {
-        console.log("this is my dbUser ", dbUser.data);
-        if (!dbUser.error) {
-          // dbUser.data.password === password ? props.history.push : alert("Email or password invalid")
-          props.history.push("./Selectquiz");
+        if (!dbUser.data.error && dbUser.data.data.password === password) {
+          console.log(dbUser.data.data._id)
+          const userId = dbUser.data.data._id
+          
+         setUser(dbUser.data.data)
+        
+        
+
+
+          // user.userId = dbUser.data.data._id 
+ 
+
+       props.history.push("./Selectquiz")
+        } else {
+          alert("Password or email invalid")
         }
       })
       .catch((err) => {
@@ -27,12 +46,15 @@ const Login = (props) => {
   };
 
   return (
-    <div className="container">
+    < div className = "container" >
       <h1>Log in</h1>
-      <div class="row">
+      <div className="row">
+
         <div className="col s3"></div>
         <div className="col s6 signupCol">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={ (e) => {
+           handleSubmit(e);
+          }}>
             <ul>
               <li>
                 <input
@@ -60,7 +82,7 @@ const Login = (props) => {
       <p>
         Don't have an account? <Link to="/signup">Sign up.</Link>{" "}
       </p>
-    </div>
+      </div>
   );
 };
 
