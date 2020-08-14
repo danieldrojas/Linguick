@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HighScoreEl from "../../components/HighScoreEl/HighScoreEl";
-import { UserConsumer } from "../../util/UserContext";
-import APR from "../../util/API";
+//import { UserConsumer } from "../../util/UserContext";
+//import APR from "../../util/API";
 import API from "../../util/API";
 
 class Leaderboard extends Component {
@@ -65,6 +65,7 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         <h1>World Rankings</h1>
+        <table>
         <tbody>
           <tr>
             <th>Rank</th>
@@ -72,16 +73,17 @@ class Leaderboard extends Component {
             <th>Quiz</th>
             <th>Score</th>
           </tr>
-          {this.state.quizes.map((quiz) => (
+          {this.state.quizes.map((quiz,index) => (
             <HighScoreEl
               rank={this.state.quizes.indexOf(quiz) + 1}
+              key= {index}
               username={quiz.newUsername}
               quizName={quiz.newQuizName}
               score={quiz.newScore}
             />
           ))}
         </tbody>
-
+        </table>
         <div>
           {/* <UserConsumer>
             {(props) => {

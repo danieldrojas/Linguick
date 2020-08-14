@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
       .then((dbUser) => {
         if (!dbUser.data.error && dbUser.data.data.password === password) {
           console.log(dbUser.data.data._id)
-          const userId = dbUser.data.data._id
+          //const userId = dbUser.data.data._id
           console.log(dbUser)
          setUser(dbUser.data.data)
           
@@ -34,8 +34,8 @@ const handleSubmit = async (e) => {
             localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))
       
  
-
-       props.history.push("./Selectquiz")
+          window.location.reload();
+      //  props.history.push("./Selectquiz")
         } else {
           alert("Password or email invalid")
         }
@@ -57,7 +57,6 @@ const handleSubmit = async (e) => {
           }}>
             <ul>
               <li>
-                {" "}
                 <input
                   type="text"
                   name="email"
@@ -67,7 +66,6 @@ const handleSubmit = async (e) => {
                 />
               </li>
               <li>
-                {" "}
                 <input
                   type="password"
                   name="password"
@@ -77,7 +75,7 @@ const handleSubmit = async (e) => {
                 />
               </li>
             </ul>
-            <button>Log In</button>
+            <button className="page-btn">Log In</button>
           </form>
         </div>
       </div>

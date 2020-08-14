@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./Navbar.css";
+import LoggedInNav from "../LoggedInNav/LoggedInNav";
+import LoggedOutNav from "../LoggedOutNav/LoggedOutNav";
 
 class Navbar extends Component {
   componentDidMount() {
@@ -10,43 +12,35 @@ class Navbar extends Component {
       var instances = M.Sidenav.init(elems, {});
     });
   }
+
+  handleLogout = (event) => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
+
   render() {
     return (
       <>
-
-          <nav>
-            <div className="nav-wrapper navbar">
-              <a href="#" data-target="slide-out" className="sidenav-trigger right">
-                <i className="material-icons">menu</i>
-              </a>
-              <Link to="/" id="logo">
-                Linguick
-              </Link>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
-                  <Link to="/signup">Sign Up</Link>
-                </li>
-                <li>
-                  <Link to="/user">Dashboard</Link>
-                </li>
-                <li>
-                  <Link to="/leaderboard">Leaderboard</Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <ul id="slide-out" className="sidenav">
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/user">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </li>
-          </ul>
-
+        <nav>
+          <div className="nav-wrapper navbar">
+            <a
+              href="#"
+              data-target="slide-out"
+              className="sidenav-trigger right"
+            >
+              <i className="material-icons">menu</i>
+            </a>
+            <Link to="/" id="logo">
+              Linguick
+            </Link>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              {this.props.isLoggedIn ? <LoggedInNav /> : <LoggedOutNav />}
+            </ul>
+          </div>
+        </nav>
+        <ul id="slide-out" className="sidenav">
+          {this.props.isLoggedIn ? <LoggedInNav /> : <LoggedOutNav />}
+        </ul>
       </>
     );
   }

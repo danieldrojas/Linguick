@@ -1,31 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../../util/API";
 //import { BrowserRouter as Router, Redirect, Link } from "react-router-dom";
+import UserContext from "../../util/UserContext";
 
 const Timer = (props) => {
   const [timer, setTimer] = useState(100);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     let timerCount = timer;
+    let userLocal = JSON.parse(localStorage.getItem("UserInfo"));
+    setUser(userLocal);
     const interval = setInterval(() => {
       if (props.isDone) {
         clearInterval(interval);
         //update the user
 
         //get the current user
-        // NEED TO REPLACE IT WITH GET 1 USER SOON
-        API.getAllUsers()
+        API.getUser(user._id)
           .then((res) => {
             //get the data for the users quizzes_taken object
-            let quizes = res.data[0].quizzes_taken;
+            let quizes = res.data.quizzes_taken;
             //push the new scores into the database
             quizes.push({
               // quizId: props.quizId,
               score: timerCount,
               quizName: props.quizName,
             });
-            //updates the scores 
-            API.updateUser(res.data[0]._id, { quizzes_taken: quizes })
+            //updates the scores
+            API.updateUser(user._id, { quizzes_taken: quizes })
               .then((res) => {
                 //go to next page
                 window.location.href = "/user";

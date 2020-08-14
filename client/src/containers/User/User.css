@@ -9,6 +9,7 @@ th {
   border-width: 1px;
   border-color: black;
   padding: 3px;
+  text-align:center;
 }
 
 th {
@@ -22,4 +23,14 @@ th {
 
 .scoreCol {
   width: 30px;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#deleteBtnEl{
+  border:0px solid #808080;
+  /* border-color:none; */
 }
