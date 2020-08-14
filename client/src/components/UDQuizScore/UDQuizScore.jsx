@@ -5,8 +5,9 @@ const UDQuizScore = (props) => {
   const deleteScore = function (event) {
     event.preventDefault();
     const idToDelete = props.quizId;
+    console.log(idToDelete)
     const tempArray = props.quizArray.filter(function (quiz) {
-      return quiz.quizId !== idToDelete;
+      return props.quizArray.indexOf(quiz) !== idToDelete;
     });
     API.updateUser(props.userID, { quizzes_taken: tempArray }).then(
       window.location.reload()
