@@ -72,7 +72,6 @@ class Leaderboard extends Component {
             <th>Quiz</th>
             <th>Score</th>
           </tr>
-          {console.log(this.state.quizes)}
           {this.state.quizes.map((quiz) => (
             <HighScoreEl
               rank={this.state.quizes.indexOf(quiz) + 1}

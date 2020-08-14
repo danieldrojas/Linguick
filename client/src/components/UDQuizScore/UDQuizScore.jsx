@@ -4,14 +4,13 @@ import API from "../../util/API";
 const UDQuizScore = (props) => {
   const deleteScore = function (event) {
     event.preventDefault();
-    const idToDelete = props.id;
-
+    const idToDelete = props.quizId;
     const tempArray = props.quizArray.filter(function (quiz) {
-      return quiz.id !== idToDelete;
+      return quiz.quizId !== idToDelete;
     });
     API.updateUser(props.userID, { quizzes_taken: tempArray }).then(
       window.location.reload()
-    )
+    );
   };
 
   return (

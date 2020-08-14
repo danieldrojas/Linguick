@@ -15,8 +15,6 @@ class User extends Component {
     // change to getUser when we have authentification worked out
     API.getAllUsers().then((res) => {
       this.setState({ user: res.data[0] });
-      console.log(this.state.user.quizzes_taken);
-      console.log(this.state.user.id)
     });
   }
 
@@ -42,11 +40,11 @@ class User extends Component {
           </tr>
           {this.state.user.quizzes_taken.map((quiz) => (
             <UDQuizSore
-              id={quiz._id}
+              quizId={quiz.quizId}
               quizName={quiz.quizName}
               score={quiz.score}
-              quizArray={this.quizArray}
-              userID = {this.userID}
+              quizArray={this.state.user.quizzes_taken}
+              userID = {this.state.user._id}
             />
           ))}
         </tbody>
