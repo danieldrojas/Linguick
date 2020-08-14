@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import question from "./testQuestions.json"
 import Timer from "../../components/Timer/Timer";
+import Soundbtn from "../../components/Soundbtn/Soundbtn";
 import API from "../../util/API";
 import "./Quiz.css";
 
@@ -122,6 +123,7 @@ class Quiz extends Component {
         )}
 
         <h1 className="question">{this.state.question}</h1>
+        <Soundbtn sound = {this.state.answer}/>
 
         {this.state.choices.map((choice) => (
           <button

@@ -65,6 +65,7 @@ class Leaderboard extends Component {
     return (
       <div className="container">
         <h1>World Rankings</h1>
+        <table>
         <tbody>
           <tr>
             <th>Rank</th>
@@ -81,7 +82,7 @@ class Leaderboard extends Component {
             />
           ))}
         </tbody>
-
+        </table>
         <div>
           {/* <UserConsumer>
             {(props) => {
