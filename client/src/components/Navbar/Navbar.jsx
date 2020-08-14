@@ -14,6 +14,7 @@ class Navbar extends Component {
 
  handleLogout = (event) => {
    localStorage.clear();
+   window.location.href = "/"
 
   }
  
