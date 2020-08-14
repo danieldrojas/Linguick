@@ -1,8 +1,7 @@
-import React, { Component, useState, useEffect, useContext } from "react";
+import React, { Component} from "react";
 import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
 import "./User.css";
 import { Link } from "react-router-dom";
-import API from "../../util/API";
 import { UserConsumer } from "../../util/UserContext";
 
 class User extends Component {
@@ -18,7 +17,7 @@ class User extends Component {
     // console.log(user)
 
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
-    console.log(userInfo);
+    //console.log(userInfo);
 
     this.setState({
       user: userInfo,
@@ -44,10 +43,10 @@ class User extends Component {
                 <h1>Welcome to your dashboard, {this.state.user.username} </h1>
                 {/* {console.log(props.user.username)} */}
                 <Link to="/leaderboard">
-                  <button class="sq-btn">See World Rankings</button>
+                  <button className="sq-btn">See World Rankings</button>
                 </Link>
                 <Link to="/selectquiz">
-                  <button class="sq-btn">Take Another Quiz</button>
+                  <button className="sq-btn">Take Another Quiz</button>
                 </Link>
                 <h2>Quizzes Taken:</h2>
                 <table>
@@ -59,6 +58,7 @@ class User extends Component {
                     {this.state.user.quizzes_taken.map((quiz) => (
                       <UDQuizSore
                         quizId={this.state.user.quizzes_taken.indexOf(quiz)}
+                        key={this.state.user.quizzes_taken.indexOf(quiz)}
                         quizName={quiz.quizName}
                         score={quiz.score}
                         quizArray={this.state.user.quizzes_taken}

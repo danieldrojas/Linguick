@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import Leaderboard from "./containers/Leaderboard/Leaderboard";
@@ -13,7 +12,6 @@ import NoMatch from "./containers/NoMatch/NoMatch";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { UserProvider } from "./util/UserContext";
-import API from "./util/API";
 
 import "./App.css";
 function App() {

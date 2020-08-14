@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
       .then((dbUser) => {
         if (!dbUser.data.error && dbUser.data.data.password === password) {
           console.log(dbUser.data.data._id)
-          const userId = dbUser.data.data._id
+          //const userId = dbUser.data.data._id
           console.log(dbUser)
          setUser(dbUser.data.data)
           
