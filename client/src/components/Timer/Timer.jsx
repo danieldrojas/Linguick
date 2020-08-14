@@ -9,7 +9,6 @@ const Timer = (props) => {
 
   useEffect(() => {
     let timerCount = timer;
-    console.log(user)
     const interval = setInterval(() => {
       if (props.isDone) {
         clearInterval(interval);
