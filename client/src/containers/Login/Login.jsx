@@ -34,8 +34,8 @@ const handleSubmit = async (e) => {
             localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))
       
  
-
-       props.history.push("./Selectquiz")
+          window.location.reload();
+      //  props.history.push("./Selectquiz")
         } else {
           alert("Password or email invalid")
         }
