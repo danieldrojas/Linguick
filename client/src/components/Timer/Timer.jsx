@@ -9,14 +9,14 @@ const Timer = (props) => {
 
   useEffect(() => {
     let timerCount = timer;
-    console.log(user)
+    let userLocal = JSON.parse(localStorage.getItem("UserInfo"))
+    setUser(userLocal)
     const interval = setInterval(() => {
       if (props.isDone) {
         clearInterval(interval);
         //update the user
 
         //get the current user
-        // NEED TO REPLACE IT WITH GET 1 USER SOON
         API.getUser(user._id)
           .then((res) => {
             //get the data for the users quizzes_taken object

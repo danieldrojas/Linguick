@@ -54,7 +54,7 @@ class Quiz extends Component {
     if (!this.state.penalty) {
       //check if the guess is correct
       if (event.target.value === this.state.answer) {
-        let btn = document.querySelectorAll(`button`);
+        let btn = document.getElementsByClassName(`quizChoice`);
         for (let i = 0; i < btn.length; i++) {
           btn[i].className = "quizChoice btn";
         }
@@ -91,7 +91,8 @@ class Quiz extends Component {
         ).className = "quizChoice btn wrong";
 
         //change all other buttons that are not red to be greyed out and unclickable 
-        let btn = document.querySelectorAll(`button`);
+        let btn = document.getElementsByClassName(`quizChoice`);
+        console.log(btn)
         for (let i = 0; i < btn.length; i++) {
           if (!btn[i].classList.contains("wrong")) {
             btn[i].className = "quizChoice btn penalty";
@@ -100,7 +101,7 @@ class Quiz extends Component {
         //Time out to change the button back to their normal colors unless it was already known to be wrong
         setTimeout(() => {
           this.setState({ penalty: false });
-          let btn = document.querySelectorAll(`button`);
+          let btn = document.getElementsByClassName(`quizChoice`);
           for (let i = 0; i < btn.length; i++) {
             if (!btn[i].classList.contains("wrong")) {
               btn[i].className = "quizChoice btn";
