@@ -5,11 +5,11 @@ export default {
     // getQuestions: function () {
     //     return axios.get("/api/quiz");
     // },
-    getUserInfo: function(id) {
-    return axios.get("/api/user/" + id)
+    getUserInfo: function (id) {
+        return axios.get("/api/user/" + id)
     },
     getOneQuiz: function (id) {
-        return axios.get("/api/quiz/" +id);
+        return axios.get("/api/quiz/" + id);
     },
     getAllQuizzes: function (id) {
         return axios.get("/api/quiz/");
@@ -33,15 +33,15 @@ export default {
         return axios.get("/api/user/" + id);
     },
 
-    getAllUsers: function() {
+    getAllUsers: function () {
         return axios.get("/api/user")
     },
     // Deletes the post with the given id
     deleteUser: function (id) {
         return axios.delete("/api/user/" + id);
     },
-    updateUser:function(id,data){
-        return axios.put("/api/user/" + id,data)
+    updateUser: function (id, data) {
+        return axios.put("/api/user/" + id, data)
     },
     // Saves a post to the database
     savePost: function (postData) {
