@@ -18,7 +18,11 @@ class SelectQuiz extends Component {
       <div className="container">
         <h1>Select quiz to take:</h1>
         {this.state.quizzes.map((quiz) => (
-          <SelectQuizButton quizName={quiz.quiz_name} id={quiz._id} />
+          <SelectQuizButton
+            quizName={quiz.quiz_name}
+            id={quiz._id}
+            key={quiz._id}
+          />
         ))}
       </div>
     );
