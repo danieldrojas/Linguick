@@ -20,7 +20,7 @@ const LoggedInRoutes = () => {
         <Route exact path="/updateuser" component={UpdateUser} />
         <Route exact path="/user" component={User} />
         <Route exact path="/signup" component={User} />
-        <Route exact path="/login" component={User} />
+        <Route exact path="/login" component={SelectQuiz} />
         <Route component={NoMatch} />
       </Switch>
     </div>
