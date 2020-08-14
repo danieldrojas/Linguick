@@ -21,15 +21,16 @@ class User extends Component {
     // console.log(user)
 
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"))
+    console.log(userInfo)
     
     this.setState({
-      localUserName: userInfo.username
+      user: userInfo
     })
 
     // change to getUser when we have authentification worked out
-    API.getAllUsers().then((res) => {
-      this.setState({ user: res.data[0] });
-    });
+    // API.getAllUsers().then((res) => {
+    //   this.setState({ user: res.data[0] });
+    // });
   }
 
   quizArray = this.state.user.quizzes_taken;
@@ -43,7 +44,7 @@ class User extends Component {
         {(props) => {
           return <div>
             <div className="container">
-              <h1>Welcome to your dashboard, {this.state.localUserName} </h1>
+              <h1>Welcome to your dashboard, {this.state.user.username} </h1>
               {/* {console.log(props.user.username)} */}
               <Link to="/leaderboard">
                 <button class="sq-btn">See World Rankings</button>
