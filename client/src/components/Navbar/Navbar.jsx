@@ -10,6 +10,14 @@ class Navbar extends Component {
       var instances = M.Sidenav.init(elems, {});
     });
   }
+
+
+ handleLogout = (event) => {
+   localStorage.clear();
+
+  }
+ 
+
   render() {
     return (
       <>
@@ -22,7 +30,10 @@ class Navbar extends Component {
               <Link to="/" id="logo">
                 Linguick
               </Link>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li>
+                <Link onClick={this.handleLogout} to="/login">Log out</Link>
+              </li>
                 <li>
                   <Link to="/signup">Sign Up</Link>
                 </li>
