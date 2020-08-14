@@ -15,7 +15,8 @@ class Quiz extends Component {
     isDone: false,
     wrongMessage: "",
     penalty: false,
-    name:""
+    name:"",
+    id: 0
   };
 
 
@@ -40,7 +41,8 @@ class Quiz extends Component {
         question: quiz[0].question,
         choices: this.randomizeArray(quiz[0].choices),
         answer: quiz[0].answer,
-        name:res.data.quiz_name
+        name:res.data.quiz_name,
+        id: res.data._id
       });
     });
   }
@@ -116,7 +118,7 @@ class Quiz extends Component {
             An error has occurred. Please return to the home page and try again.
           </h1>
         ) : (
-          <Timer isDone={this.state.isDone} />
+          <Timer isDone={this.state.isDone} quizName={this.state.name} quizId={this.state.id}/>
         )}
 
         <h1 className="question">{this.state.question}</h1>
