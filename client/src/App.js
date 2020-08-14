@@ -38,7 +38,7 @@ function App() {
 
         <UserProvider value={{user, setUser}}>
 
-          <Navbar />
+          <Navbar isLoggedIn={isLoggedIn}/>
           {isLoggedIn ? (
             <LoggedInRoutes />
           ) : (
