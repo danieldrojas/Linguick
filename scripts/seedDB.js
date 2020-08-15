@@ -100,8 +100,8 @@ const characterseed = [
 
       {
         question: "ㅈ",
-        choices: ["c", "s", "l", "j"],
-        answer: "c",
+        choices: ["j", "s", "l", "t"],
+        answer: "j",
       },
 
       {
@@ -128,6 +128,126 @@ const characterseed = [
         question: "ㅎ",
         choices: ["d", "p", "q", "h"],
         answer: "h",
+      },
+    ],
+  },
+  {
+    quiz_name: "Korean Syllables - Basic",
+    questions: [
+      {
+        question: "비",
+        choices: ["ba", "be", "heu", "joo"],
+        answer: "be",
+      },
+      {
+        question: "후",
+        choices: ["huu", "ha", "hyeo", "hya"],
+        answer: "huu",
+      },
+      {
+        question: "소",
+        choices: ["soo", "syu", "se", "suu"],
+        answer: "soo",
+      },
+      {
+        question: "자",
+        choices: ["ja", "jyu", "jya", "jeo"],
+        answer: "ja",
+      },
+      {
+        question: "느",
+        choices: ["neu", "leu", "le", "ne"],
+        answer: "neu",
+      },
+      {
+        question: "도",
+        choices: ["doo", "cyo", "da", "cuu"],
+        answer: "doo",
+      },
+      {
+        question: "우",
+        choices: ["uu", "oo", "eo", "eu"],
+        answer: "uu",
+      },
+      {
+        question: "머",
+        choices: ["meo", "ma", "myu", "me"],
+        answer: "meo",
+      },
+      {
+        question: "캬",
+        choices: ["kya", "kyeo", "ka", "kyu"],
+        answer: "kya",
+      },
+      {
+        question: "류",
+        choices: ["ryu", "roo", "ruu", "ryeo"],
+        answer: "ryu",
+      },
+      {
+        question: "펴",
+        choices: ["pya", "pyeo", "puu", "peu"],
+        answer: "pyeo",
+      },
+      {
+        question: "토",
+        choices: ["eo", "to", "too", "te"],
+        answer: "to",
+      },
+    ],
+  },
+  {
+    quiz_name: "Korean Syllables - Advanced",
+    questions: [
+      {
+        question: "날",
+        choices: ["nar", "lar", "nyar", "lyar"],
+        answer: "nar",
+      },
+      {
+        question: "빅",
+        choices: ["beg", "boog", "bag", "byag"],
+        answer: "beg",
+      },
+      {
+        question: "핟",
+        choices: ["had", "hat", "hed", "ham"],
+        answer: "had",
+      },
+      {
+        question: "폴",
+        choices: ["pool", "puul", "pooh", "peul"],
+        answer: "pool",
+      },
+      {
+        question: "즌",
+        choices: ["jeun", "juun", "jan", "jyun"],
+        answer: "jeun",
+      },
+      {
+        question: "굼",
+        choices: ["guum", "gyum", "geum", "gem"],
+        answer: "guum",
+      },
+      {
+        question: "뎤",
+        choices: ["dyeok", "deok", "dyak", "duuk"],
+        answer: "dyeok",
+      },
+      {
+        question: "럇",
+        choices: ["ryas", "ras", "reos", "soos"],
+        answer: "rya",
+      },
+      {
+        question: "섣",
+        choices: ["seod", "seog", "seun", "sood"],
+        answer: "seod",
+      },
+      {
+        question: "칱",
+        choices: ["chet", "cheot", "chuut", "chyut"],
+        answer: "chet",
       },
     ],
   },
