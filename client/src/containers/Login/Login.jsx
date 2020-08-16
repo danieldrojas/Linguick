@@ -14,31 +14,32 @@ const Login = (props) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("front end username is " + email);
-    console.log("front end password is " + password);
-    console.log("user before return " + user);
-
+    // console.log("front end username is " + email);
+    // console.log("front end password is " + password);
+    // console.log("user before return " + user);
 
     API.getUserLogin({
       email,
+      password
     })
-      .then((dbUser) => {
-        if (!dbUser.data.error && dbUser.data.data.password === password) {
-          console.log(dbUser.data.data._id)
-          //const userId = dbUser.data.data._id
-          console.log(dbUser)
-         setUser(dbUser.data.data)
+      .then((foundUser) => {
+        console.log(foundUser.data)
+        if (foundUser.data.error) {
+          alert("Invalid user or password")
+        }        
+        console.log("responds from backend:", foundUser.data.data)
+        setUser(foundUser.data.data)
           
         // console.log(user)
 
-            localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))
+        localStorage.setItem("UserInfo", JSON.stringify(foundUser.data.data))
       
  
           window.location.reload();
       //  props.history.push("./Selectquiz")
-        } else {
-          alert("Password or email invalid")
-        }
+        // } else {
+        //   alert("Password or email invalid")
+        // }
       })
       .catch((err) => {
         console.log(err);

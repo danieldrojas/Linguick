@@ -15,10 +15,8 @@ router
 // .delete(userController.remove);
 
 // Matches "/api/user/login"
-
 router
     .route("/login")
-    // .get(userController.findAll)
     .post(userController.findByEmail);
 
 ///api/user/:id

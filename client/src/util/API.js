@@ -1,10 +1,7 @@
 import axios from "axios";
 
 export default {
-    // Gets all posts
-    // getQuestions: function () {
-    //     return axios.get("/api/quiz");
-    // },
+ 
     getUserInfo: function (id) {
         return axios.get("/api/user/" + id)
     },
@@ -14,9 +11,9 @@ export default {
     getAllQuizzes: function (id) {
         return axios.get("/api/quiz/");
     },
-    getUserLogin: function (email) {
-        console.log("we hitthe rpute:", email)
-        return axios.post("/api/user/login", email)
+    getUserLogin: function (user) {
+        console.log("we get tje email in API:", user)
+        return axios.post("/api/user/login", user)
     },
 
     // // Gets the post with the given id
