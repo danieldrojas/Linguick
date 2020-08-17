@@ -24,7 +24,7 @@ class Navbar extends Component {
         <nav>
           <div className="nav-wrapper navbar">
             <a
-              href="#"
+              href="/"
               data-target="slide-out"
               className="sidenav-trigger right"
             >
