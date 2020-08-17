@@ -10,9 +10,9 @@ const QuizTables = (props) => {
   let userArray = [];
   userArray = [...new Set(filteredArray.map((item) => item.newUsername))];
   let singleUserArray = [];
-  for (let i=0; i<userArray.length; i++) {
-    let newEntry = filteredArray.find(e => e.newUsername === userArray[i])
-    singleUserArray.push(newEntry)
+  for (let i = 0; i < userArray.length; i++) {
+    let newEntry = filteredArray.find((e) => e.newUsername === userArray[i]);
+    singleUserArray.push(newEntry);
   }
   return (
     <div>
@@ -24,8 +24,9 @@ const QuizTables = (props) => {
             <th>Username</th>
             <th>Score</th>
           </tr>
-          {singleUserArray.map((score) => (
+          {singleUserArray.map((score, index) => (
             <HighScoreEl
+              key={index}
               quizName={props.quizName}
               username={score.newUsername}
               score={score.newScore}
