@@ -124,7 +124,7 @@ class Quiz extends Component {
         )}
 
         <h1 className="question">{this.state.question}</h1>
-        <Soundbtn sound = {this.state.question}/>
+        <Soundbtn sound = {this.state.answer}/>
 
         {this.state.choices.map((choice) => (
           <button

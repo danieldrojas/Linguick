@@ -5,12 +5,12 @@ const Soundbtn = (props) => {
   const [sound, setSound] = useState([]);
 
   useEffect(() => {
-    API.translateLetter({ text: props.sound }).then((res) => {
-      let msg = new SpeechSynthesisUtterance(res.data);
+    // API.translateLetter({ text: props.sound }).then((res) => {
+      let msg = new SpeechSynthesisUtterance(props.sound);
       msg.voice = speechSynthesis.getVoices()[13];
       msg.lang = "ko-KR";
       setSound(msg);
-    });
+    // });
   }, [props.sound]);
 
   function handleClick(event) {
