@@ -54,7 +54,6 @@ module.exports = {
             bcrypt
                 .compare(req.body.password, dbUser.password)
                 .then( (result) => {
-                    console.log('result from bcrypt: ', result)
 
                     if (result) {
                         res.json({

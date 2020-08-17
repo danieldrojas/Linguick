@@ -13,12 +13,10 @@ class User extends Component {
     localUserName: "",
   };
 
+  //setting user context for a class component
   static contextType = UserContext;
 
   componentDidMount() {
-    // const user = this.context
-    // console.log(user)
-    // console.log(this.context.user);
 
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
     //console.log(userInfo);
