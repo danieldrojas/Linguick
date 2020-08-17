@@ -82,7 +82,7 @@ class User extends Component {
                     ))}
                   </tbody>
                 </table>
-                <button className="danger" onClick={this.handleDelete}>
+                <button className="btn-danger" onClick={this.handleDelete}>
                   Delete Account
                 </button>
               </div>
