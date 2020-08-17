@@ -18,6 +18,9 @@ export default {
         console.log("we hitthe rpute:", email)
         return axios.post("/api/user/login", email)
     },
+    translateLetter: function(data){
+        return axios.post("/api/translate",data)
+    },
 
     // // Gets the post with the given id
     // getPost: function (id) {

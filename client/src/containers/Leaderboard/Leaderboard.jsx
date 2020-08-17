@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import QuizTableEl from "../../components/QuizTableEl/QuizTableEl";
 //import { UserConsumer } from "../../util/UserContext";
 //import APR from "../../util/API";
 import API from "../../util/API";
