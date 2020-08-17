@@ -1,5 +1,6 @@
 import React from "react";
 import HighScoreEl from "../HighScoreEl/HighScoreEl";
+import "./style.css";
 
 const QuizTables = (props) => {
   let filteredArray = [];

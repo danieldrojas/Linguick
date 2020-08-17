@@ -104,3 +104,8 @@ dist
 .tern-port
 
 /client/build
+
+# google cloud variables
+
+./linguick-77ddccc346f4.json.json
+./linguick.js
