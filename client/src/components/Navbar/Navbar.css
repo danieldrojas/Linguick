@@ -16,6 +16,6 @@
     margin-top:20px;
 }
 .sidenav li>a:hover, nav ul a:hover{
-  font-size:25px;
+  background-color:#efcb68;
 }
 
