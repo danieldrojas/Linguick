@@ -237,7 +237,7 @@ const characterseed = [
       {
         question: "럇",
         choices: ["ryas", "ras", "reos", "soos"],
-        answer: "rya",
+        answer: "ryas",
       },
       {
         question: "섣",
