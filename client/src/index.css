@@ -37,3 +37,18 @@
 h1,h2{
   font-size:40px;
 }
+
+#deleteBtnEl{
+  /* border-color:white; */
+}
+
+.btn-danger {
+  font-size: 24px;
+  border-radius: 5px;
+  width: 200px;
+  color: white;
+  background-color: red;
+  padding:5px;
+  margin-top: 10px;
+}
+
