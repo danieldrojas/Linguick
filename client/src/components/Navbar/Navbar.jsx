@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import LoggedInNav from "../LoggedInNav/LoggedInNav";
 import LoggedOutNav from "../LoggedOutNav/LoggedOutNav";
@@ -28,7 +28,9 @@ class Navbar extends Component {
               data-target="slide-out"
               className="sidenav-trigger right"
             >
-              <i className="material-icons">menu</i>
+              <i className="material-icons" id="menu">
+                menu
+              </i>
             </a>
             <Link to="/" id="logo">
               Linguick

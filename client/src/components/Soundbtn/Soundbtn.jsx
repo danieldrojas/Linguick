@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+// import API from "../../util/API";
 
 const Soundbtn = (props) => {
   const [sound, setSound] = useState([]);
 
   useEffect(() => {
-    let msg = new SpeechSynthesisUtterance(props.sound);
-    msg.voice = speechSynthesis.getVoices()[13];
-    msg.lang = "ko-KR";
-    setSound(msg);
+    // API.translateLetter({ text: props.sound }).then((res) => {
+      let msg = new SpeechSynthesisUtterance(props.sound);
+      msg.voice = speechSynthesis.getVoices()[13];
+      msg.lang = "ko-KR";
+      setSound(msg);
+    // });
   }, [props.sound]);
 
   function handleClick(event) {
@@ -17,7 +20,9 @@ const Soundbtn = (props) => {
 
   return (
     <div>
-      <button onClick={handleClick} className = "btn" id = "sound">Play Sound</button>
+      <button onClick={handleClick} className="btn" id="sound">
+        Play Sound
+      </button>
     </div>
   );
 };

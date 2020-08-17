@@ -3,9 +3,7 @@ const userController = require("../../controllers/userController");
 const { route } = require("./quiz");
 
 // Matches with "/api/user"
-router
-  .route("/")
-  .get(userController.findAll);
+router.route("/").get(userController.findAll);
 
 // Matches with "/api/user/signup/:id"
 router
@@ -17,13 +15,15 @@ router
 // Matches "/api/user/login"
 
 router
-    .route("/login")
-    // .get(userController.findAll)
-    .post(userController.findByEmail);
+  .route("/login")
+  // .get(userController.findAll)
+  .post(userController.findByEmail);
 
 ///api/user/:id
-router.route("/:id")
+router
+  .route("/:id")
   .get(userController.findById)
-  .put(userController.update);
+  .put(userController.update)
+  .delete(userController.remove);
 
 module.exports = router;

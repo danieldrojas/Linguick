@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import UDQuizSore from "../../components/UDQuizScore/UDQuizScore";
 import "./User.css";
 import { Link } from "react-router-dom";
-import { UserConsumer } from "../../util/UserContext";
+import UserContext, { UserConsumer } from "../../util/UserContext";
 import API from "../../util/API";
 
 class User extends Component {
@@ -13,9 +13,12 @@ class User extends Component {
     localUserName: "",
   };
 
+  static contextType = UserContext;
+
   componentDidMount() {
     // const user = this.context
     // console.log(user)
+    // console.log(this.context.user);
 
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
     //console.log(userInfo);
@@ -25,12 +28,21 @@ class User extends Component {
         user: res.data,
       });
     });
-
-    // change to getUser when we have authentification worked out
-    // API.getAllUsers().then((res) => {
-    //   this.setState({ user: res.data[0] });
-    // });
   }
+
+  handleDelete = () => {
+    let confirmDelete = window.confirm(
+      "Are you sure you want to delete your account?"
+    );
+    if (confirmDelete) {
+      // console.log(this.state.user._id)
+      API.deleteUser(this.state.user._id).then(() => {
+        localStorage.clear();
+        window.location.href = "/";
+        console.log("It worked");
+      });
+    }
+  };
 
   quizArray = this.state.user.quizzes_taken;
 
@@ -70,6 +82,9 @@ class User extends Component {
                     ))}
                   </tbody>
                 </table>
+                <button className="btn-danger" onClick={this.handleDelete}>
+                  Delete Account
+                </button>
               </div>
             </div>
           );

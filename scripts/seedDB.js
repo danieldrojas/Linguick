@@ -237,7 +237,7 @@ const characterseed = [
       {
         question: "럇",
         choices: ["ryas", "ras", "reos", "soos"],
-        answer: "rya",
+        answer: "ryas",
       },
       {
         question: "섣",
@@ -262,8 +262,3 @@ db.Quiz.remove({})
     console.error(err);
     process.exit(1);
   });
-
-//questions: ㄱ , ㄴ, ㄷ, ㄹ ,ㅁ, ㅂ, ㅅ, ㅇ, ㅈ ,ㅊ ,ㅋ, ㅌ ,ㅍ ,ㅎ, ㅏ ,ㅑ ,ㅓ ,ㅕ ,ㅗ ,ㅛ, ㅜ ,ㅠ ,ㅡ ,ㅣ
-//answers:   g ,  n ,d ,r,  m ,b,  s, o,  c ,ch, k ,t , p ,h, a, ya ,eo ,yeo, o ,yo, uu,  yu , eu , e
-
-// korean alphabet:consonants(could be separated out into diff quiz)
