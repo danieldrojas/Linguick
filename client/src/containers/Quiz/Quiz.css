@@ -16,10 +16,11 @@
 
 .quizChoice {
   height: 60px;
-  width: 60px;
+  width: 15%;
   padding:0px;
-  font-size: 30px;
-  margin: 3px;
+  font-size: 25px;
+  margin: 5px;
+  margin-top:15px;
 }
 .btn{background-color:#efcb68;}
 .btn:focus{
