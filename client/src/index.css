@@ -19,6 +19,12 @@
   background-color: #efcb68;
   padding:5px;
 }
+.page-btn:hover{
+  background-color: #efcb68;
+}
+.page-btn:focus{
+  background-color: #efcb68;
+}
 
 .page-btn:hover,.sq-btn:hover {
   box-shadow: 0 0 11px rgba(33,33,33,33); 
@@ -32,6 +38,12 @@
   color: white;
   background-color: #efcb68;
   padding:5px;
+}
+.sq-btn:focus{
+ background-color:#efcb68;
+}
+.sq-btn:hover{
+  background-color:#efcb68;
 }
 
 h1,h2{
