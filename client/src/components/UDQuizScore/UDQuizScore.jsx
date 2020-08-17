@@ -20,7 +20,7 @@ const UDQuizScore = (props) => {
       <td className="scoreCol">{props.score}</td>
       <td className="scoreCol" id="deleteBtnEl">
         <button className="delete" onClick={deleteScore}>
-        <i class="material-icons">clear</i>
+          <i className="material-icons">clear</i>
         </button>
       </td>
     </tr>
