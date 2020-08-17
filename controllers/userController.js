@@ -1,6 +1,7 @@
 
 const db = require("../models");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken")
 
 // Defining methods for the User Model
 module.exports = {
@@ -13,10 +14,14 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
+
+        console.log
         db.User.findById(req.params.id)
             .then(dbUsers => res.json(dbUsers))
             .catch(err => res.status(422).json(err));
     },
+
+//sign up
     create: function (req, res) {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
             if (err) {
@@ -46,20 +51,26 @@ module.exports = {
       
             .catch(err => res.status(422).json(err));
     },
+
+    //login 
     findByEmail: function (req, res) {
-        db.User.findOne({         
-                email: req.body.email
-            
-        }).then((dbUser) => {
+        db.User.findOne({ email: req.body.email }).then((dbUser) => {
             bcrypt
                 .compare(req.body.password, dbUser.password)
-                .then( (result) => {
+                .then((result) => {
+
+                    const privateKey = process.env.JWT_PASSWORD
+                    jwt.sign({ email: req.body.email }, privateKey, function (err, token) {
+                        console.log('this is my token: ',token)
+                  
+                    
+
                     console.log('result from bcrypt: ', result)
 
                     if (result) {
                         res.json({
                             error: false,
-                            data: dbUser,
+                            data: token,
                             message: "Found a match for user!"
                         })
                     } else {
@@ -68,6 +79,7 @@ module.exports = {
                             message: "User Not Found!"
                         }).status(404)
                     }
+                    })
                 
             })         
            

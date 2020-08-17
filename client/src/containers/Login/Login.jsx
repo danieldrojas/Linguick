@@ -2,6 +2,7 @@ import React, { useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import API from "../../util/API";
 import  UserContext from "../../util/UserContext"
+import  AuthContext from "../../util/AuthContext"
 
 
 const Login = (props) => {
@@ -10,7 +11,7 @@ const Login = (props) => {
   
   const { user, setUser} = useContext(UserContext)
  
-  
+  const auth = useContext(AuthContext)
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +32,7 @@ const handleSubmit = async (e) => {
           console.log(dbUser)
          setUser(dbUser.data.data)
           
+          auth.handleLogin(dbUser.data.data)
         // console.log(user)
 
             localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))

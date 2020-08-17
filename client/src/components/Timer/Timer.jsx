@@ -7,6 +7,8 @@ const Timer = (props) => {
   const [timer, setTimer] = useState(100);
   const { user, setUser } = useContext(UserContext);
 
+
+  
   useEffect(() => {
     let timerCount = timer;
     let userLocal = JSON.parse(localStorage.getItem("UserInfo"));

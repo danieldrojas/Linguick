@@ -4,6 +4,8 @@ import "./User.css";
 import { Link } from "react-router-dom";
 import { UserConsumer } from "../../util/UserContext";
 import API from "../../util/API";
+import AuthContext from "../../util/AuthContext"
+import { useContext } from "react";
 
 class User extends Component {
   state = {
@@ -13,9 +15,18 @@ class User extends Component {
     localUserName: "",
   };
 
+  static contextType = AuthContext;  
+
+
   componentDidMount() {
-    // const user = this.context
-    // console.log(user)
+    const access_token = this.context
+    console.log('this is from class component', access_token)
+
+    let config = {
+      headers: {
+        auth: access_token,
+      }
+    }
 
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
     //console.log(userInfo);
