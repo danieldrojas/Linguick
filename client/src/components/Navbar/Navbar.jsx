@@ -9,7 +9,7 @@ class Navbar extends Component {
     const M = window.M;
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {});
+      M.Sidenav.init(elems, {});
     });
   }
 
@@ -24,7 +24,7 @@ class Navbar extends Component {
         <nav>
           <div className="nav-wrapper navbar">
             <a
-              href="#"
+              href="/"
               data-target="slide-out"
               className="sidenav-trigger right"
             >
