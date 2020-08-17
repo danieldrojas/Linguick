@@ -21,9 +21,11 @@ const handleSubmit = async (e) => {
 
     API.getUserLogin({
       email,
+      password
     })
       .then((dbUser) => {
-        if (!dbUser.data.error && dbUser.data.data.password === password) {
+        console.log(dbUser)
+        if (!dbUser.data.error) {
           console.log(dbUser.data.data._id)
           //const userId = dbUser.data.data._id
           console.log(dbUser)

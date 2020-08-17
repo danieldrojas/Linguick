@@ -5,7 +5,6 @@ const HighScoreEl = (props) => {
     <tr>
       <td>{props.rank}</td>
       <td>{props.username}</td>
-      <td>{props.quizName}</td>
       <td>{props.score}</td>
     </tr>
   );
