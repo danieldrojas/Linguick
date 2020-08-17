@@ -28,7 +28,7 @@ class Navbar extends Component {
               data-target="slide-out"
               className="sidenav-trigger right"
             >
-              <i className="material-icons">menu</i>
+              <i className="material-icons"id="menu">menu</i>
             </a>
             <Link to="/" id="logo">
               Linguick
