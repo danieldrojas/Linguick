@@ -13,16 +13,13 @@ class User extends Component {
     localUserName: "",
   };
 
+  //setting user context for a class component
   static contextType = UserContext;
 
   componentDidMount() {
-    // const user = this.context
-    // console.log(user)
-    // console.log(this.context.user);
-
+    // get current user infromation from local storage
     const userInfo = JSON.parse(localStorage.getItem("UserInfo"));
-    //console.log(userInfo);
-
+    // get all data about user from database and sets it to state
     API.getUser(userInfo._id).then((res) => {
       this.setState({
         user: res.data,
@@ -31,21 +28,24 @@ class User extends Component {
   }
 
   handleDelete = () => {
+    // ask to confim you want to delete your account
     let confirmDelete = window.confirm(
       "Are you sure you want to delete your account?"
     );
     if (confirmDelete) {
-      // console.log(this.state.user._id)
+      // delete user using current id
       API.deleteUser(this.state.user._id).then(() => {
+        // clear local storage and redirect to login page
         localStorage.clear();
         window.location.href = "/";
-        console.log("It worked");
       });
     }
   };
 
+  // store data of all quizzes the user has taken
   quizArray = this.state.user.quizzes_taken;
 
+  // store the user id as a variable
   userID = this.state.user._id;
 
   render() {
@@ -56,7 +56,6 @@ class User extends Component {
             <div>
               <div className="container">
                 <h1>Welcome to your dashboard, {this.state.user.username} </h1>
-                {/* {console.log(props.user.username)} */}
                 <Link to="/leaderboard">
                   <button className="sq-btn">See World Rankings</button>
                 </Link>

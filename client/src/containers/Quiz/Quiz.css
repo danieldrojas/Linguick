@@ -17,6 +17,7 @@
   display:block;
 }
 .quizChoice {
+  width:20%;
   height: 60px;
   padding:5px;
   font-size: 25px;

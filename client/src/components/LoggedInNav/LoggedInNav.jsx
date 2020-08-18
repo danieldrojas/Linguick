@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const LoggedInNav = () => {
   const handleLogout = (event) => {
+    // log user out and redirect to login page
     localStorage.clear();
     window.location.href = "/";
   };

@@ -51,13 +51,9 @@ module.exports = {
                 email: req.body.email
             
         }).then((dbUser) => {
-            console.log('found in database: ', dbUser.password)
-            console.log("this is req.body.password: ", req.body.password)
-
             bcrypt
                 .compare(req.body.password, dbUser.password)
                 .then( (result) => {
-                    console.log('result from bcrypt: ', result)
 
                     if (result) {
                         res.json({
@@ -72,9 +68,7 @@ module.exports = {
                         }).status(404)
                     }
                 
-            })
-
-          
+            })         
            
         }).catch((error) => {
                 res.status(422)

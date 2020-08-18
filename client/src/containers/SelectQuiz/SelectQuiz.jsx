@@ -8,6 +8,7 @@ class SelectQuiz extends Component {
   };
 
   componentDidMount() {
+    // get all quizzes from the database and set them to state
     API.getAllQuizzes("/quiz").then((res) => {
       this.setState({ quizzes: res.data });
     });

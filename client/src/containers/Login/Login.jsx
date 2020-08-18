@@ -14,30 +14,22 @@ const Login = (props) => {
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("front end username is " + email);
-    console.log("front end password is " + password);
-    console.log("user before return " + user);
 
 
+//passing an obj with email and password to verify user in backend
     API.getUserLogin({
       email,
       password
     })
       .then((dbUser) => {
-        console.log(dbUser)
+     //if we get and answer continue
         if (!dbUser.data.error) {
-          console.log(dbUser.data.data._id)
-          //const userId = dbUser.data.data._id
-          console.log(dbUser)
-         setUser(dbUser.data.data)
-          
-        // console.log(user)
-
-            localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))
-      
+//set the user state to the user back from database
+          setUser(dbUser.data.data)
+          //saving the user in localstorage
+            localStorage.setItem("UserInfo", JSON.stringify(dbUser.data.data))      
  
           window.location.reload();
-      //  props.history.push("./Selectquiz")
         } else {
           alert("Password or email invalid")
         }

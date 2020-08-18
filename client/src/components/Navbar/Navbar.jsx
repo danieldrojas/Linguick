@@ -6,17 +6,13 @@ import LoggedOutNav from "../LoggedOutNav/LoggedOutNav";
 
 class Navbar extends Component {
   componentDidMount() {
+    // allow the sandwich menu to appear on smaller screens
     const M = window.M;
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems, {});
+      M.Sidenav.init(elems, {});
     });
   }
-
-  handleLogout = (event) => {
-    localStorage.clear();
-    window.location.href = "/";
-  };
 
   render() {
     return (
@@ -24,7 +20,7 @@ class Navbar extends Component {
         <nav>
           <div className="nav-wrapper navbar">
             <a
-              href="#"
+              href="/"
               data-target="slide-out"
               className="sidenav-trigger right"
             >
@@ -36,11 +32,13 @@ class Navbar extends Component {
               Linguick
             </Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
+              {/* check if user is logged in and display the corresponding navbar */}
               {this.props.isLoggedIn ? <LoggedInNav /> : <LoggedOutNav />}
             </ul>
           </div>
         </nav>
         <ul id="slide-out" className="sidenav">
+          {/* check if user is logged in and display the corresponding navbar */}
           {this.props.isLoggedIn ? <LoggedInNav /> : <LoggedOutNav />}
         </ul>
       </>
