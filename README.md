@@ -25,12 +25,15 @@ This application provides the user with the opportunity to test their skill with
 ## Usage 
 
 [Deployed site](https://linguick.herokuapp.com/)
+
+On loading, you will be directed to the signup page. Once you log in, you can choose a quiz to take and taken it. Once you've taken a quiz, you can see your scores on the Dashboard page, or how you rank among other users on the Leaderboard page.
   
-![Web Page 1](./public/assets/signup.png)<br>
-![Web Page 2](./public/assets/login.png)<br>
-![Web Page 3](./public/assets/quiz.png)<br>
-![Web Page 4](./public/assets/dashboard.png)<br>
-![Web Page 5](./public/assets/leaderboard.png)<br>
+![Signup Page](./assets/images/signup.png)<br>
+![Login Page](./assets/images/login.png)<br>
+![Quiz Select Page](./assets/images/selectquiz.png)<br>
+![Quiz Page](./assets/images/quiz.png)<br>
+![Dashboard Page](./assets/images/dashboard.png)<br>
+![Leaderboard Page](./assets/images/leaderboard.png)<br>
 
 ## MIT_License
 
