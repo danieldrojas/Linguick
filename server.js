@@ -1,8 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose")
-const path = require("path")
 const routes = require("./routes");
-const router = require("./routes");
 
 var app = express();
 
@@ -36,6 +34,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes)
+
 mongoose
     .connect(process.env.MONGODB_URI || "mongodb://localhost/linguick",
         {
