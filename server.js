@@ -1,9 +1,11 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
 const router = require("./routes");
 require("dotenv").config();
+
 
 var app = express();
 
@@ -36,7 +38,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+
 app.use(routes);
+
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/linguick", {
     useNewUrlParser: true,
